@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div v-if="coin.market_data">
         <div class="bg-secondary">
             <label for="entry">Somme en eur</label><br>
             <input type="number" id="entry" v-model="entryvalue" placeholder="Entrer la somme">
@@ -20,8 +20,9 @@ export default {
         }
     },
     computed:{
-        outputvalue(){
-            return this.entryvalue * (1/this.coin.market_data.current_price.eur)
+        outputvalue:{
+            get : function(){return this.entryvalue * (1/this.coin.market_data.current_price.eur)},
+            set : function(newValue) {this.entryvalue = newValue / (1/this.coin.market_data.current_price.eur)}
         }
     }
 }
