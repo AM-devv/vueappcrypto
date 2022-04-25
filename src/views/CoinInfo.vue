@@ -2,6 +2,7 @@
     <div>
         <h2>{{ coin.name }}</h2>
         <Line v-if="coin.market_data" :chart-data="chartData" class="linechart bg-white"> </Line>
+        <simulation :coin=coin></simulation>
     </div>
 </template>
 
@@ -9,10 +10,11 @@
 import axios from 'axios'
 import 'chart.js/auto';
 import { Line } from 'vue-chartjs'
+import Simulation from '../components/Simulation.vue'
 
 export default {
     name: "CoinInfo",
-    components: { Line },
+    components: { Line, Simulation },
     props: ['id'],
     data(){
         return{
