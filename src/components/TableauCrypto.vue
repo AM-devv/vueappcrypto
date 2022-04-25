@@ -6,7 +6,7 @@
             <thead>
                 <tr>
                     <th>NOM</th>
-                    <th>PRIX</th>
+                    <th @click="SortPrice">PRIX <span v-if="orderprice ==true">↑</span> <span v-else-if="orderprice == false">↓</span></th>
                     <th>24H</th>
                     <th>LOGO</th>
                 </tr>
@@ -16,8 +16,7 @@
                 <tr class="align-middle" v-for="cryp in SearchCryps" :key="cryp.id">
                     <td>{{ cryp.name }} <router-link :to="{ name: 'coininfo', params: {id: cryp.id} }">Plus d'info</router-link> </td>
                     <td>{{ cryp.current_price }}</td>
-                    <td v-if="cryp.price_change_24h > 0" class="text-success">{{ cryp.price_change_24h }}</td>
-                    <td v-else class="text-danger">{{ cryp.price_change_24h }}</td>
+                    <td :class="cryp.price_change_24h > 0 ? 'text-success'  : 'text-danger' ">{{ cryp.price_change_24h }}</td>
                     <td><img :src="cryp.image" :alt="cryp.name"></td>
                 </tr>
             </tbody>
@@ -33,7 +32,8 @@ export default {
     data(){
         return{
             cryps : [],
-            searchvalue : "" 
+            searchvalue : "",
+            orderprice:null 
         };
     },
     created() {
@@ -50,6 +50,26 @@ export default {
         GetCoins(){
             axios.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=1h%2C24h%2C7d')
             .then((response) => {this.cryps = response.data} ).catch(error => console.log(error));
+        },
+        SortPrice(){
+            if(this.orderprice==null){
+                this.orderprice=true
+            }
+            else{
+                this.orderprice=!this.orderprice
+            }
+            if(this.orderprice==true){
+                this.cryps.sort((a,b) => {
+                return a.current_price - b.current_price;
+                })
+            }
+            else if(this.orderprice==false){
+                this.cryps.sort((a,b) => {
+                return b.current_price - a.current_price;
+                })
+            }
+
+            
         }
     }
 }
