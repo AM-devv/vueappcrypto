@@ -1,7 +1,6 @@
 <template>
     <div>
         <input type="search" class="form-control w-25" placeholder="Recherche" v-model="searchvalue">
-        <p v-if="SearchCryps.length == 0">Résultat vide</p>
         <table class="table table-dark table-striped">
             <thead>
                 <tr>
@@ -18,6 +17,9 @@
                     <td>{{ cryp.current_price }}</td>
                     <td :class="cryp.price_change_24h > 0 ? 'text-success'  : 'text-danger' ">{{ cryp.price_change_24h }}</td>
                     <td><img :src="cryp.image" :alt="cryp.name"></td>
+                </tr>
+                <tr v-if="SearchCryps.length == 0">
+                    Aucun résultat
                 </tr>
             </tbody>
             
