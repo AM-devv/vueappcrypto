@@ -6,7 +6,9 @@
                 <tr>
                     <th>NOM</th>
                     <th @click="SortPrice">PRIX <span v-if="orderprice ==true">↑</span> <span v-else-if="orderprice == false">↓</span></th>
-                    <th>24H</th>
+                    <th>Changement de prix sur 1H</th>
+                    <th>Changement de prix sur 24H</th>
+                    <th>Changement de prix sur 1 semaine</th>
                     <th>LOGO</th>
                 </tr>
                 
@@ -15,7 +17,9 @@
                 <tr class="align-middle" v-for="cryp in SearchCryps" :key="cryp.id">
                     <td>{{ cryp.name }} <router-link :to="{ name: 'coininfo', params: {id: cryp.id} }">Plus d'info</router-link> </td>
                     <td>{{ cryp.current_price }}</td>
-                    <td :class="cryp.price_change_24h > 0 ? 'text-success'  : 'text-danger' ">{{ cryp.price_change_24h }}</td>
+                    <td :class="cryp.price_change_percentage_1h_in_currency > 0 ? 'text-success'  : 'text-danger' ">{{ cryp.price_change_percentage_1h_in_currency.toFixed(3) }} %</td>
+                    <td :class="cryp.price_change_percentage_24h > 0 ? 'text-success'  : 'text-danger' ">{{ cryp.price_change_percentage_24h.toFixed(3) }} %</td>
+                    <td :class="cryp.price_change_percentage_7d_in_currency > 0 ? 'text-success'  : 'text-danger' ">{{ cryp.price_change_percentage_7d_in_currency.toFixed(3) }} %</td>
                     <td><img :src="cryp.image" :alt="cryp.name"></td>
                 </tr>
                 <tr v-if="SearchCryps.length == 0">
@@ -50,7 +54,7 @@ export default {
     },
     methods: {
         GetCoins(){
-            axios.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=1h%2C24h%2C7d')
+            axios.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=1h%2C24h%2C7d')
             .then((response) => {this.cryps = response.data} ).catch(error => console.log(error));
         },
         SortPrice(){

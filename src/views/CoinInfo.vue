@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h2>{{ coin.name }}</h2>
+        <h2>{{ coin.name }} {{ coin.id }}</h2>
         <Line v-if="coin.market_data" :chart-data="chartData" class="linechart bg-white"> </Line>
         <simulation :coin=coin></simulation>
     </div>
@@ -32,7 +32,7 @@ export default {
                     label: 'Prix en eur',
                     backgroundColor: '#f87979',
                     borderColor: '#3b9bf5',
-                    data: [this.coin.market_data.current_price.eur * ((100-this.coin.market_data.price_change_percentage_1y) / 100),
+                    data:  [this.coin.market_data.current_price.eur * ((100-this.coin.market_data.price_change_percentage_1y) / 100),
                             this.coin.market_data.current_price.eur * ((100-this.coin.market_data.price_change_percentage_200d) / 100),
                             this.coin.market_data.current_price.eur * ((100-this.coin.market_data.price_change_percentage_60d) / 100),
                             this.coin.market_data.current_price.eur * ((100-this.coin.market_data.price_change_percentage_30d) / 100),
