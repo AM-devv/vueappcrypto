@@ -1,7 +1,7 @@
 <template>
-    <div>
+    <div class="p-3">
         <input type="search" class="form-control w-25" placeholder="Recherche" v-model="searchvalue">
-        <table class="table table-dark table-striped">
+        <table class="table table-dark table-striped table-hover">
             <thead>
                 <tr>
                     <th>NOM</th>
@@ -9,7 +9,7 @@
                     <th>Changement de prix sur 1H</th>
                     <th>Changement de prix sur 24H</th>
                     <th>Changement de prix sur 1 semaine</th>
-                    <th>LOGO</th>
+                    <th class="text-center">LOGO</th>
                 </tr>
                 
             </thead>
@@ -20,7 +20,7 @@
                     <td :class="cryp.price_change_percentage_1h_in_currency > 0 ? 'text-success'  : 'text-danger' ">{{ cryp.price_change_percentage_1h_in_currency.toFixed(3) }} %</td>
                     <td :class="cryp.price_change_percentage_24h > 0 ? 'text-success'  : 'text-danger' ">{{ cryp.price_change_percentage_24h.toFixed(3) }} %</td>
                     <td :class="cryp.price_change_percentage_7d_in_currency > 0 ? 'text-success'  : 'text-danger' ">{{ cryp.price_change_percentage_7d_in_currency.toFixed(3) }} %</td>
-                    <td><img :src="cryp.image" :alt="cryp.name"></td>
+                    <td class="text-center"><img :src="cryp.image" :alt="cryp.name" width="20" height="20"></td>
                 </tr>
                 <tr v-if="SearchCryps.length == 0">
                     Aucun résultat
@@ -80,3 +80,7 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+
+</style>
