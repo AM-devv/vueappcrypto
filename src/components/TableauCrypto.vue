@@ -4,7 +4,7 @@
         <table class="table table-dark table-striped table-hover">
             <thead>
                 <tr>
-                    <th>NOM</th>
+                    <th @click="SortName">NOM <span v-if="ordername ==true">↑</span> <span v-else-if="ordername == false">↓</span></th>
                     <th @click="SortPrice">PRIX <span v-if="orderprice ==true">↑</span> <span v-else-if="orderprice == false">↓</span></th>
                     <th>Changement de prix sur 1H</th>
                     <th>Changement de prix sur 24H</th>
@@ -39,7 +39,8 @@ export default {
         return{
             cryps : [],
             searchvalue : "",
-            orderprice:null 
+            orderprice:null,
+            ordername:null
         };
     },
     created() {
@@ -74,8 +75,28 @@ export default {
                 return b.current_price - a.current_price;
                 })
             }
-
+            this.ordername = null;
             
+        },
+        SortName(){
+            if(this.ordername==null){
+                this.ordername=true
+            }
+            else{
+                this.ordername=!this.ordername
+            }
+            if(this.ordername==true){
+                this.cryps.sort((a,b) => {
+                return a.id > b.id;
+                })
+            }
+            else if(this.ordername==false){
+                this.cryps.sort((a,b) => {
+                return b.id > a.id;
+                })
+            }
+            this.orderprice=null;
+            console.log("coucou")
         }
     }
 }
