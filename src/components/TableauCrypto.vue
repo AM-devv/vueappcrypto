@@ -1,5 +1,5 @@
 <template>
-    <div class="p-3">
+    <div>
         <input type="search" class="form-control w-25" placeholder="Recherche" v-model="searchvalue">
         <table class="table table-dark table-striped table-hover">
             <thead>

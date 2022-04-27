@@ -1,11 +1,15 @@
 <template>
     <div v-if="coin.market_data">
-        <div class="bg-secondary">
-            <label for="entry">Somme en eur</label><br>
-            <input type="number" id="entry" v-model="entryvalue" placeholder="Entrer la somme">
-            <br>
-            <label for="output">Somme en {{ coin.name }}</label><br>
-            <input type="number" id="output" v-model="outputvalue" placeholder="Resultat">
+        <div class="card text-dark bg-light mb-3">
+            <div class="card-header">Simulateur</div>
+            <div class="card-body text-center">
+                <label for="entry" class="card-title">Somme en eur</label><br>
+                <input type="number" id="entry" v-model="entryvalue" placeholder="Entrer la somme">
+                <br>
+                <label for="output">Somme en {{ coin.name }}</label><br>
+                <input type="number" id="output" v-model="outputvalue" placeholder="Resultat">  
+            </div>
+            
         </div>
     </div>
 </template>

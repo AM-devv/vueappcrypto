@@ -1,8 +1,8 @@
 <template>
-    <div>
+    <div class="row">
         <h2>{{ coin.name }} {{ coin.id }}</h2>
-        <Line v-if="coin.market_data" :chart-data="chartData" class="linechart bg-white"> </Line>
-        <simulation :coin=coin></simulation>
+        <Line v-if="coin.market_data" :chart-data="chartData" class="bg-white col-8 rounded"> </Line>
+        <simulation :coin=coin class="col-4"></simulation>
     </div>
 </template>
 
@@ -58,8 +58,5 @@ export default {
 </script>
 
 <style scoped>
-.linechart{
-    height: 25%;
-    width: 50%;
-}
+
 </style>
