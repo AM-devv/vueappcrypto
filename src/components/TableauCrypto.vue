@@ -87,12 +87,12 @@ export default {
             }
             if(this.ordername==true){
                 this.cryps.sort((a,b) => {
-                return a.id > b.id;
+                return a.name.localeCompare(b.name);
                 })
             }
             else if(this.ordername==false){
                 this.cryps.sort((a,b) => {
-                return b.id > a.id;
+                return b.name.localeCompare(a.name);
                 })
             }
             this.orderprice=null;
