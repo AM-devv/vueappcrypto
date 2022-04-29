@@ -1,8 +1,10 @@
 <template>
-  <div class="bg-dark text-white">
+  <div class="bg-dark text-light">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-light">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">Logo</a>
+        <a class="navbar-brand" href="#">
+          <img src="./assets/logovuecrp.png" width="250" alt="logo">
+        </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
