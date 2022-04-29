@@ -4,8 +4,8 @@
         <table class="table table-dark table-striped table-hover">
             <thead>
                 <tr>
-                    <th :class="ordername!= null ? 'text-warning'  : '' " @click="SortName">NOM <span v-if="ordername ==true">↑</span> <span v-else-if="ordername == false">↓</span></th>
-                    <th :class="orderprice!= null ? 'text-warning'  : '' " @click="SortPrice">PRIX <span v-if="orderprice ==true">↑</span> <span v-else-if="orderprice == false">↓</span></th>
+                    <th role="button" :class="ordername!= null ? 'text-warning'  : '' " @click="SortName">NOM <span v-if="ordername ==true">↑</span> <span v-else-if="ordername == false">↓</span></th>
+                    <th role="button" :class="orderprice!= null ? 'text-warning'  : '' " @click="SortPrice">PRIX <span v-if="orderprice ==true">↑</span> <span v-else-if="orderprice == false">↓</span></th>
                     <th>Changement de prix sur 1H</th>
                     <th>Changement de prix sur 24H</th>
                     <th>Changement de prix sur 1 semaine</th>
