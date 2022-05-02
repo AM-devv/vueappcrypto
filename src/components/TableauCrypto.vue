@@ -15,7 +15,7 @@
                 
             </thead>
             <tbody>
-                <tr class="align-middle" v-for="cryp in SearchCryps" :key="cryp.id">
+                <tr class="align-middle" v-for="cryp in SearchCryps.slice(0,limit)" :key="cryp.id">
                     <td>{{ cryp.name }}</td>
                     <td><router-link class="btn btn-primary btn-sm" :to="{ name: 'coininfo', params: {id: cryp.id} }">Plus d'info</router-link> </td>
                     <td>{{ cryp.current_price }} $</td>
@@ -37,6 +37,7 @@
 import axios from 'axios'
 export default {
     name: "TableauCrypto",
+    props:['limit'],
     data(){
         return{
             cryps : [],

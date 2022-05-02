@@ -25,7 +25,7 @@
       </div>
     </section>
     <section class="col-md-10">
-      <tableau-crypto></tableau-crypto>
+      <tableau-crypto :limit=10></tableau-crypto>
     </section>
     
   </div>
@@ -38,7 +38,7 @@ export default {
   name: "HomeView",
   components: {
     TableauCrypto
-  }
+  },
 }
 </script>
 
