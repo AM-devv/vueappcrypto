@@ -1,8 +1,11 @@
 <template>
-    <div class="row">
-        <h2>{{ coin.name }} {{ coin.id }}</h2>
-        <Line v-if="coin.market_data" :chart-data="chartData" class="bg-white col-8 rounded"> </Line>
-        <simulation :coin=coin class="col-4"></simulation>
+    <div class="row justify-content-center">
+        <div class="col-md-10 row justify-content-between">
+            <h2>{{ coin.name }} {{ coin.id }}</h2>
+            <Line v-if="coin.market_data" :chart-data="chartData" class="bg-white col-md-6 rounded"> </Line>
+            <simulation :coin=coin class="col-md-4"></simulation>
+        </div>
+        
     </div>
 </template>
 
