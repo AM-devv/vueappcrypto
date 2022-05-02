@@ -1,6 +1,7 @@
 <template>
     <div>
         <input type="search" class="form-control w-25" placeholder="Recherche" v-model="searchvalue">
+        <span class="btn btn-danger" @click="Sortcap">Reset</span>
         <table class="table table-dark table-striped table-hover">
             <thead>
                 <tr>
@@ -99,12 +100,23 @@ export default {
                 })
             }
             this.orderprice=null;
-            console.log("coucou")
+        },
+        Sortcap(){
+            this.cryps.sort((a,b)=>{
+                return a.market_cap_rank - b.market_cap_rank;
+            })
+            this.orderprice=null;
+            this.ordername=null;
+            this.searchvalue="";
         }
     }
 }
 </script>
 
 <style scoped>
-
+    th:nth-child(-n+3):hover{
+        text-decoration: underline;
+        text-decoration-thickness: 0.20rem;
+        text-underline-offset: 0.5rem;
+    }
 </style>
