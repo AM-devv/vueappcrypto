@@ -5,6 +5,7 @@
             <thead>
                 <tr>
                     <th role="button" :class="ordername!= null ? 'text-warning'  : '' " @click="SortName">NOM <span v-if="ordername ==true">↑</span> <span v-else-if="ordername == false">↓</span></th>
+                    <th></th>
                     <th role="button" :class="orderprice!= null ? 'text-warning'  : '' " @click="SortPrice">PRIX <span v-if="orderprice ==true">↑</span> <span v-else-if="orderprice == false">↓</span></th>
                     <th>Changement de prix sur 1H</th>
                     <th>Changement de prix sur 24H</th>
@@ -15,8 +16,9 @@
             </thead>
             <tbody>
                 <tr class="align-middle" v-for="cryp in SearchCryps" :key="cryp.id">
-                    <td>{{ cryp.name }} <router-link class="btn btn-primary btn-sm" :to="{ name: 'coininfo', params: {id: cryp.id} }">Plus d'info</router-link> </td>
-                    <td>{{ cryp.current_price }}</td>
+                    <td>{{ cryp.name }}</td>
+                    <td><router-link class="btn btn-primary btn-sm" :to="{ name: 'coininfo', params: {id: cryp.id} }">Plus d'info</router-link> </td>
+                    <td>{{ cryp.current_price }} $</td>
                     <td :class="cryp.price_change_percentage_1h_in_currency > 0 ? 'text-success'  : 'text-danger' ">{{ cryp.price_change_percentage_1h_in_currency.toFixed(3) }} %</td>
                     <td :class="cryp.price_change_percentage_24h > 0 ? 'text-success'  : 'text-danger' ">{{ cryp.price_change_percentage_24h.toFixed(3) }} %</td>
                     <td :class="cryp.price_change_percentage_7d_in_currency > 0 ? 'text-success'  : 'text-danger' ">{{ cryp.price_change_percentage_7d_in_currency.toFixed(3) }} %</td>
