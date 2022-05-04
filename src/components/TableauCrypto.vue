@@ -1,7 +1,13 @@
 <template>
     <div>
-        <input type="search" class="form-control w-25" placeholder="Recherche" v-model="searchvalue">
-        <span class="btn btn-danger" @click="Sortcap">Reset</span>
+        <div class="row">
+            <div class="col-md-3">
+                <input type="search" class="form-control" placeholder="Recherche" v-model="searchvalue">
+            </div>
+            
+            <span class="btn btn-danger col-md-1" @click="Sortcap">Reset</span>  
+        </div>
+       
         <table class="table table-dark table-striped table-hover">
             <thead>
                 <tr>
