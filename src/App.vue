@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-dark text-light">
+  <div class="bg-dark text-light h-100">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-light">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">
@@ -11,13 +11,13 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <router-link class="nav-link" :to="{ name: 'home' }"> Home</router-link>
+              <router-link class="nav-link" :to="{ name: 'home' }">Acceuil</router-link>
             </li>
             <li class="nav-item">
-              <router-link class="nav-link" :to="{ name: 'about' }">About</router-link>
+              <router-link class="nav-link" :to="{ name: 'about' }">A propos</router-link>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Pricing</a>
+              <router-link class="nav-link" :to="{ name: 'prix' }">Prix actuel</router-link>
             </li>
           </ul>
         </div>
