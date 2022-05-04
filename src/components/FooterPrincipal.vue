@@ -1,6 +1,6 @@
 <template>
-    <div class="justify-content-center bg-light row">
-        <footer class=" col-md-10 text-dark row py-5">
+    <div id="test" class="justify-content-center bg-light row">
+        <footer class=" col-md-10 text-dark row py-5 align-items-center">
             <ul class="text-dark nav flex-column col-md-4">
                 <li class="nav-item">
                     <a class="navbar-brand" href="#">
@@ -39,5 +39,9 @@ export default {
 <style scoped>
 footer{
     overflow: hidden;
+}
+
+#test{
+    height: 60vh;
 }
 </style>
