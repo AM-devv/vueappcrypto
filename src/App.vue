@@ -24,13 +24,16 @@
       </div>
     </nav>
     <router-view></router-view>
+    <footer-principal></footer-principal>
   </div>
 </template>
 
 <script>
-
+import FooterPrincipal from "./components/FooterPrincipal.vue";
 
 export default {
-  
+  components: {
+    FooterPrincipal
+  }
 }
 </script>
