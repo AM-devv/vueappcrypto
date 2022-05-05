@@ -8,6 +8,9 @@
       <cards></cards>
     </section>
     <section class="col-md-10">
+      <questions></questions>
+    </section>
+    <section class="col-md-10">
       <tableau-crypto :limit=10></tableau-crypto>
     </section>
     
@@ -17,11 +20,12 @@
 <script>
 import TableauCrypto from "../components/TableauCrypto.vue"
 import Cards from "../components/Cards.vue"
+import Questions from "../components/Questions.vue"
 export default {
   
   name: "HomeView",
   components: {
-    TableauCrypto, Cards
+    TableauCrypto, Cards, Questions
   },
 }
 </script>
