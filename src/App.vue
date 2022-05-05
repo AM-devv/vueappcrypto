@@ -19,6 +19,9 @@
             <li class="nav-item">
               <router-link class="nav-link" :to="{ name: 'prix' }">Prix actuel</router-link>
             </li>
+            <li class="nav-item">
+              <router-link class="nav-link" :to="{ name: 'social' }">Social</router-link>
+            </li>
           </ul>
         </div>
       </div>
