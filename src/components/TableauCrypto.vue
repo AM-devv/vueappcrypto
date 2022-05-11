@@ -23,7 +23,7 @@
             </thead>
             <tbody>
                 <tr class="align-middle" v-for="cryp in SearchCryps.slice(0,limit)" :key="cryp.id">
-                    <td>{{ cryp.name }} <strong @click="Addfav(cryp)" >O</strong></td>
+                    <td>{{ cryp.name }} <strong class="text-danger" @click="Removefav(cryp)" v-if="favorites.some(fav => fav.name === cryp.name)">X</strong> <strong v-else @click="Addfav(cryp)" class="text-success">O</strong></td>
                     <td><router-link class="btn btn-primary btn-sm" :to="{ name: 'coininfo', params: {id: cryp.id} }">Plus d'info</router-link> </td>
                     <td>{{ cryp.current_price }} $</td>
                     <td :class="cryp.price_change_percentage_1h_in_currency > 0 ? 'text-success'  : 'text-danger' ">{{ cryp.price_change_percentage_1h_in_currency.toFixed(3) }} %</td>
@@ -52,7 +52,7 @@ export default {
             orderprice:null,
             ordername:null,
 
-            favorites:[]
+            favorites: JSON.parse(localStorage.getItem('favorites')) || []
         };
     },
     created() {
@@ -118,10 +118,13 @@ export default {
             this.searchvalue="";
         },
         Addfav(cryp){
-            this.favorites = JSON.parse(localStorage.getItem('favorites')) || [];
             this.favorites.push(cryp);
             localStorage.setItem("favorites", JSON.stringify(this.favorites));
         },
+        Removefav(cryp){
+            this.favorites = this.favorites.filter(fav => fav.name !== cryp.name);
+            localStorage.setItem("favorites", JSON.stringify(this.favorites));
+        }
     }
 }
 </script>
