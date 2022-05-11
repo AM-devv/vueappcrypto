@@ -46,7 +46,7 @@ export default {
             newpost:{
                 name:"",
                 content:"",
-                createdAt: Date
+                createdAt: ""
             }
             
         }

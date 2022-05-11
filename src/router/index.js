@@ -5,6 +5,7 @@ import CoinInfo from '../views/CoinInfo.vue'
 import Prix from '../views/Prix.vue'
 import Social from '../views/Social.vue'
 import NotFound from '../views/NotFound.vue'
+import Dashboard from '../views/Dashboard.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -34,6 +35,11 @@ const router = createRouter({
       path: '/social',
       name: 'social',
       component: Social,
+    },
+    {
+      path: '/dashboard',
+      name: 'dashboard',
+      component: Dashboard
     },
     {
       path: '/:pathMatch(.*)*',

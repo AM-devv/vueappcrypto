@@ -23,7 +23,7 @@
             </thead>
             <tbody>
                 <tr class="align-middle" v-for="cryp in SearchCryps.slice(0,limit)" :key="cryp.id">
-                    <td>{{ cryp.name }}</td>
+                    <td>{{ cryp.name }} <strong @click="Addfav(cryp)" >O</strong></td>
                     <td><router-link class="btn btn-primary btn-sm" :to="{ name: 'coininfo', params: {id: cryp.id} }">Plus d'info</router-link> </td>
                     <td>{{ cryp.current_price }} $</td>
                     <td :class="cryp.price_change_percentage_1h_in_currency > 0 ? 'text-success'  : 'text-danger' ">{{ cryp.price_change_percentage_1h_in_currency.toFixed(3) }} %</td>
@@ -50,7 +50,9 @@ export default {
             cryps : [],
             searchvalue : "",
             orderprice:null,
-            ordername:null
+            ordername:null,
+
+            favorites:[]
         };
     },
     created() {
@@ -114,7 +116,12 @@ export default {
             this.orderprice=null;
             this.ordername=null;
             this.searchvalue="";
-        }
+        },
+        Addfav(cryp){
+            this.favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+            this.favorites.push(cryp);
+            localStorage.setItem("favorites", JSON.stringify(this.favorites));
+        },
     }
 }
 </script>
