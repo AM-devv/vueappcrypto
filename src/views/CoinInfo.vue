@@ -32,16 +32,16 @@ export default {
                 labels: [ '1 an','200 jours','60 jours','30 jours','14 jours', '7 jours', '24H'],
                 datasets: [
                 {
-                    label: 'Prix en eur',
-                    backgroundColor: '#f87979',
-                    borderColor: '#3b9bf5',
-                    data:  [this.coin.market_data.current_price.eur * ((100-this.coin.market_data.price_change_percentage_1y) / 100),
-                            this.coin.market_data.current_price.eur * ((100-this.coin.market_data.price_change_percentage_200d) / 100),
-                            this.coin.market_data.current_price.eur * ((100-this.coin.market_data.price_change_percentage_60d) / 100),
-                            this.coin.market_data.current_price.eur * ((100-this.coin.market_data.price_change_percentage_30d) / 100),
-                            this.coin.market_data.current_price.eur * ((100-this.coin.market_data.price_change_percentage_14d) / 100),
-                            this.coin.market_data.current_price.eur * ((100-this.coin.market_data.price_change_percentage_7d) / 100),
-                            this.coin.market_data.current_price.eur * ((100-this.coin.market_data.price_change_percentage_24h) / 100)]
+                    label: 'Prix en dollar',
+                    backgroundColor: '#F66B0E',
+                    borderColor: '#205375',
+                    data:  [this.coin.market_data.current_price.usd * ((100-this.coin.market_data.price_change_percentage_1y) / 100),
+                            this.coin.market_data.current_price.usd * ((100-this.coin.market_data.price_change_percentage_200d) / 100),
+                            this.coin.market_data.current_price.usd * ((100-this.coin.market_data.price_change_percentage_60d) / 100),
+                            this.coin.market_data.current_price.usd * ((100-this.coin.market_data.price_change_percentage_30d) / 100),
+                            this.coin.market_data.current_price.usd * ((100-this.coin.market_data.price_change_percentage_14d) / 100),
+                            this.coin.market_data.current_price.usd * ((100-this.coin.market_data.price_change_percentage_7d) / 100),
+                            this.coin.market_data.current_price.usd * ((100-this.coin.market_data.price_change_percentage_24h) / 100)]
                 }
                 ]
             }
