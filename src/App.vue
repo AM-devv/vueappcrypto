@@ -11,7 +11,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <router-link class="nav-link" :to="{ name: 'home' }">Acceuil</router-link>
+              <router-link class="nav-link" :to="{ name: 'home' }">Accueil</router-link>
             </li>
             <li class="nav-item">
               <router-link class="nav-link" :to="{ name: 'about' }">A propos</router-link>
@@ -25,10 +25,13 @@
             <li class="nav-item">
               <router-link class="nav-link" :to="{ name: 'dashboard' }">Dashboard</router-link>
             </li>
+            
           </ul>
+          <tuto></tuto>
         </div>
       </div>
     </nav>
+    
     <router-view></router-view>
     <footer-principal></footer-principal>
   </div>
@@ -36,10 +39,11 @@
 
 <script>
 import FooterPrincipal from "./components/FooterPrincipal.vue";
+import Tuto from "./components/Tuto.vue";
 
 export default {
   components: {
-    FooterPrincipal
+    FooterPrincipal, Tuto
   }
 }
 </script>

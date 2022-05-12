@@ -1,7 +1,8 @@
 <template>
   <div class="row justify-content-center">
     <section class="col-md-10 row justify-content-between">
-      <h1 class="col-md-8">Bienvenu sur CRYPTOTHEMOON <br> l'application web qui va <br> vous simplifier la vie <br> avec la cryptomonnaie</h1>
+      <h1 class="col-md-6">Bienvenu sur CRYPTOTHEMOON <br> l'application web qui va <br> vous simplifier la vie <br> avec la cryptomonnaie</h1>
+      <div class="col-md-6"><img class="img-fluid" src="../assets/rocket.png" alt=""></div>
       
     </section>
     <section class="col-md-10">
