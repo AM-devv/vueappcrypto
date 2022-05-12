@@ -2,7 +2,7 @@
     <div class="container mt-5">
     
             <h2>Votre tableau de bord</h2>
-            <h3>Vous retrouverez ici vos favoris ...</h3>
+            <h3>Vous retrouverez ici vos informations ...</h3>
         
         <div class="row">
             <section class="row col-lg-6 col-12">
