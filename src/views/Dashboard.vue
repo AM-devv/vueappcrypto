@@ -5,6 +5,18 @@
             <h3>Vous retrouverez ici vos informations ...</h3>
         
         <div class="row">
+            <section class="row col-lg-12 col-12">
+                <h3>Votre dernier message</h3>
+                <div v-if="messages != null" class="card text-dark">
+                    <div class="card-header">
+                        {{messages.name}}
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">{{messages.content}}</p>
+                    </div>
+                </div>
+                <h4 v-if="messages == null">Aucun message</h4>
+            </section>
             <section class="row col-lg-6 col-12">
             <h3 v-if="favorites != null">Cryptos favorites {{ favorites.length }}</h3>
             <h4 v-if="favorites == 0 || favorites == null">Aucun favoris</h4>
@@ -42,11 +54,13 @@ export default {
     data(){
         return{
             favorites:[],
-            trending:[]
+            trending:[],
+            messages:[]
         }
     },
     created(){
         this.favorites = JSON.parse(localStorage.getItem('favorites'));
+        this.messages = JSON.parse(localStorage.getItem('messages'));
 
         axios.get('https://api.coingecko.com/api/v3/search/trending')
             .then((response) => {this.trending = response.data.coins;} ).catch(error => console.log(error));

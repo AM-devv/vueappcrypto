@@ -74,6 +74,7 @@ export default {
             this.newpost.createdAt = new Date();
             axios.post('https://627522206d3bc09e106b014f.mockapi.io/posts', this.newpost)
             .then((response)=> {this.newpost.content = ""; this.posts.push(response.data);}).catch((error)=> console.log(error));
+            localStorage.setItem("messages", JSON.stringify(this.newpost));
         }
     }
 
