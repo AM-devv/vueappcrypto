@@ -5,9 +5,9 @@
             <h3>cryptos favorites</h3>
             <h4 v-if="favorites == 0 || favorites == null">Aucun favoris</h4>
             <div v-for="favorite in favorites" :key="favorite.id" class="card text-dark my-5 col-12 col-md-3">
-                    <h5 class="card-header">{{favorite.name}} <p @click="Removefav(favorite)" >🗑</p> </h5>
+                    <h5 class="card-header">{{favorite.name}} <p @click="Removefav(favorite)" class="text-danger" >Supprimer</p> </h5>
                     <div class="card-body">
-                        <h5 class="card-title">{{favorite.current_price}}</h5>
+                        <h5 class="card-title">{{favorite.current_price}} $</h5>
                         <p class="card-text">{{favorite.price_change_percentage_1h_in_currency}}</p>
                         <router-link class="btn btn-primary btn-sm" :to="{ name: 'coininfo', params: {id: favorite.id} }">Plus d'info</router-link>
                     </div>
