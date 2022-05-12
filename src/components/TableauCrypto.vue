@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="row">
+        <div class="row pb-1">
             <div class="col-md-3">
                 <input type="search" class="form-control" placeholder="Recherche" v-model="searchvalue">
             </div>
@@ -13,6 +13,7 @@
                 <tr>
                     <th role="button" :class="ordername!= null ? 'text-warning'  : '' " @click="SortName">NOM <span v-if="ordername ==true">↑</span> <span v-else-if="ordername == false">↓</span></th>
                     <th></th>
+                    <th></th>
                     <th role="button" :class="orderprice!= null ? 'text-warning'  : '' " @click="SortPrice">PRIX <span v-if="orderprice ==true">↑</span> <span v-else-if="orderprice == false">↓</span></th>
                     <th>Changement de prix sur 1H</th>
                     <th>Changement de prix sur 24H</th>
@@ -23,13 +24,14 @@
             </thead>
             <tbody>
                 <tr class="align-middle" v-for="cryp in SearchCryps.slice(0,limit)" :key="cryp.id">
-                    <td>{{ cryp.name }}
-                        <strong class="text-danger" @click="Removefav(cryp)" v-if="favorites.some(fav => fav.name === cryp.name)">
+                    <td>{{ cryp.name }}</td>
+                    <td>
+                        <strong role="button" class="text-danger" @click="Removefav(cryp)" v-if="favorites.some(fav => fav.name === cryp.name)">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
                             </svg>
                         </strong>
-                        <strong v-else @click="Addfav(cryp)" class="text-danger">
+                        <strong role="button" v-else @click="Addfav(cryp)" class="text-danger">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
                                 <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
                             </svg>
@@ -141,7 +143,7 @@ export default {
 </script>
 
 <style scoped>
-    th:nth-child(-n+3):hover{
+    th:nth-child(-n+4):hover{
         text-decoration: underline;
         text-decoration-thickness: 0.20rem;
         text-underline-offset: 0.5rem;
