@@ -22,7 +22,7 @@
                 <div v-for="post in SortPosts" :key="post.id" class="card text-dark my-5 col-md-12">
                     <h5 class="card-header">{{post.name}}</h5>
                     <div class="card-body">
-                        <h5 class="card-title">{{post.createdAt}}</h5>
+                        <h5 class="card-title">{{ new Date (post.createdAt).toLocaleString('fr')}}</h5>
                         <p class="card-text">{{post.content}}</p>
                         <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
                     </div>
