@@ -30,9 +30,14 @@
             </div>
         </section>
         <section class="row  col-lg-6 col-12">
-            <h3>TOP 7 tendances</h3>
+            <h3>Top 7 tendances</h3>
             <trending></trending>
             
+        </section>
+
+        <section>
+            <h3>Toutes les cryptos</h3>
+            <slider></slider>
         </section>
         </div>
         
@@ -44,11 +49,12 @@
 
 <script>
 import Trending from "../components/Trending.vue"
+import Slider from "../components/Slider.vue"
 
 export default {
     name:"Dashboard",
     components: {
-        Trending
+        Trending,Slider
     },
     data(){
         return{
