@@ -31,13 +31,7 @@
         </section>
         <section class="row  col-lg-6 col-12">
             <h3>TOP 7 tendances</h3>
-            <ul class="list-group">
-               <li class="list-group-item d-flex justify-content-between" v-for="trend in trending" :key="trend.item.id">
-                {{trend.item.name}}
-                <img :src="trend.item.small" alt="logo" width="25" height="25">
-                </li> 
-               
-            </ul>
+            <trending></trending>
             
         </section>
         </div>
@@ -49,14 +43,17 @@
 </template>
 
 <script>
-import axios from 'axios'
+import Trending from "../components/Trending.vue"
 
 export default {
     name:"Dashboard",
+    components: {
+        Trending
+    },
     data(){
         return{
             favorites:[],
-            trending:[],
+            
             messages:[]
         }
     },
@@ -64,8 +61,7 @@ export default {
         this.favorites = JSON.parse(localStorage.getItem('favorites'));
         this.messages = JSON.parse(localStorage.getItem('messages'));
 
-        axios.get('https://api.coingecko.com/api/v3/search/trending')
-            .then((response) => {this.trending = response.data.coins;} ).catch(error => console.log(error));
+        
 
             
     },
