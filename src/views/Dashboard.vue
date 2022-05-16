@@ -21,9 +21,11 @@
             <h3 v-if="favorites != null">Cryptos favorites {{ favorites.length }}</h3>
             <h4 v-if="favorites == 0 || favorites == null">Aucun favoris</h4>
             <div v-for="favorite in favorites" :key="favorite.id" class="card text-dark my-5 mx-1 col-12 col-lg-3">
-                    <h5 class="card-header">{{favorite.name}} <p role="button" @click="Removefav(favorite)" class="text-danger" >Supprimer</p> </h5>
+                    <h5 class="card-header">{{favorite.name}}</h5>
                     <div class="card-body">
-                        <router-link class="btn btn-primary btn-sm" :to="{ name: 'coininfo', params: {id: favorite.id} }">Plus d'info</router-link>
+                        <router-link class="btn btn-primary btn-sm" :to="{ name: 'coininfo', params: {id: favorite.id} }">Plus d'infos</router-link>
+                        <hr>
+                        <button class="btn btn-danger btn-sm" @click="Removefav(favorite)">Supprimer</button>
                     </div>
             </div>
         </section>
