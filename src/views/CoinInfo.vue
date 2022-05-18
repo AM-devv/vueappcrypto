@@ -3,16 +3,16 @@
         <div class="col-10 mt-5 row justify-content-between">
             <div class="col-md-9">
                 <h2>{{ coin.name }}</h2>
-                <h3>{{ coin.market_data.current_price.usd }} $</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, a officia quaerat commodi dignissimos optio, laboriosam, provident amet quia ducimus autem. Cum eaque eum exercitationem, hic nesciunt iste excepturi eligendi.</p>
+                <h3>{{ coin.market_data.current_price.usd.toLocaleString() }} $</h3>
+                <div v-html="coin.description.en"></div>
             </div>
             <div class="col-md-3 mb-5">
                 <img :src="coin.image.large" alt="">
             </div>
 
             <div class="col-md-8">
-                <Line :chart-data="chartData" class="bg-light rounded mb-3"> </Line>
-                <div class="bg-light text-dark mb-3  p-3 rounded">
+                <Line :chart-data="chartData" class="bg-light shadow rounded mb-3"> </Line>
+                <div class="bg-light shadow text-dark mb-3  p-3 rounded">
                     <h3>Social</h3>
                     <div class="row">
                         <div class="col-6 text-center p-3 border-end border-primary">
@@ -49,18 +49,18 @@
             
             
             <div class="col-md-4">
-                <simulation :coin=coin></simulation>
+                <simulation class="shadow" :coin=coin></simulation>
                 <ul class="list-group mb-3">
                     <li class="list-group-item border-dark d-flex">
                         <h3>Tickers</h3>
                     </li>
-                    <li class="list-group-item d-flex justify-content-between" v-for="ticker in coin.tickers.slice(0, 5)" :key="ticker.id">
+                    <li class="list-group-item shadow d-flex justify-content-between" v-for="ticker in coin.tickers.slice(0, 5)" :key="ticker.id">
                         {{ ticker.base }} vers {{ ticker.target}}
                         <p>{{ ticker.converted_last.usd }} $</p>
                         <p>{{ ticker.market.name }}</p>
                     </li>
                 </ul>
-                <Pie :chart-data="Piedata" class="bg-light rounded"> </Pie>
+                <Pie :chart-data="Piedata" class="bg-light shadow rounded"> </Pie>
             </div>
 
             
