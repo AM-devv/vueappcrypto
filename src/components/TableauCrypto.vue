@@ -18,21 +18,21 @@
                     <th>Changement de prix sur 1H</th>
                     <th>Changement de prix sur 24H</th>
                     <th>Changement de prix sur 1 semaine</th>
-                    <th class="text-center">LOGO</th>
+                    <!-- <th class="text-center">LOGO</th> -->
                 </tr>
                 
             </thead>
             <tbody>
                 <tr class="align-middle" v-for="cryp in SearchCryps.slice(0,limit)" :key="cryp.id">
-                    <td>{{ cryp.name }}</td>
+                    <td><img :src="cryp.image" :alt="cryp.name" width="20" height="20"> {{ cryp.name }}</td>
                     <td>
                         <strong role="button" class="text-danger" @click="Removefav(cryp)" v-if="favorites.some(fav => fav.name === cryp.name)">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill big" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
                             </svg>
                         </strong>
                         <strong role="button" v-else @click="Addfav(cryp)" class="text-danger">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart big" viewBox="0 0 16 16">
                                 <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
                             </svg>
                         </strong>
@@ -42,7 +42,7 @@
                     <td :class="cryp.price_change_percentage_1h_in_currency > 0 ? 'text-success'  : 'text-danger' ">{{ cryp.price_change_percentage_1h_in_currency.toFixed(3) }} %</td>
                     <td :class="cryp.price_change_percentage_24h > 0 ? 'text-success'  : 'text-danger' ">{{ cryp.price_change_percentage_24h.toFixed(3) }} %</td>
                     <td :class="cryp.price_change_percentage_7d_in_currency > 0 ? 'text-success'  : 'text-danger' ">{{ cryp.price_change_percentage_7d_in_currency.toFixed(3) }} %</td>
-                    <td class="text-center"><img :src="cryp.image" :alt="cryp.name" width="20" height="20"></td>
+                    <!-- <td class="text-center"></td> -->
                 </tr>
                 <tr v-if="SearchCryps.length == 0">
                     Aucun résultat
@@ -147,5 +147,12 @@ export default {
         text-decoration: underline;
         text-decoration-thickness: 0.20rem;
         text-underline-offset: 0.5rem;
+    }
+    .big:hover{
+        transform: scale(1.5);
+        
+    }
+    .big{
+        transition: transform .2s;
     }
 </style>
