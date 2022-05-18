@@ -22,9 +22,10 @@
                     <p>Les meilleurs actu de la crypto</p>
                     <div class="d-flex w-100 gap-2">
                         <label for="newsletter1" class="visually-hidden">Email address</label>
-                        <input id="newsletter1" type="text" class="form-control" placeholder="Adresse mail">
-                        <button class="btn btn-primary" type="button">S'abonner</button>
+                        <input id="newsletter1" type="email" v-model="emailobj.email" class="form-control" placeholder="Adresse mail">
+                        <button class="btn btn-primary" @click="Sendemail" type="button">S'abonner</button>
                     </div>
+                    <p class="text-danger">{{ errors }}</p>
                 </form> 
             </div>
             
@@ -33,8 +34,40 @@
 </template>
 
 <script>
+
+import axios from 'axios'
+
 export default {
-    name:"FooterPrincipale"
+    name:"FooterPrincipale",
+
+    data(){
+        return{
+            emailobj: {
+                email : ""
+            },
+            errors: ""
+        }
+    },
+
+    methods:{
+        Resetcontent(){
+            this.errors = "";
+        },
+        Sendemail(){
+            if(this.emailobj.email == ""){
+                this.errors = "Renseigner votre email";
+            }
+            else if(!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.emailobj.email)){
+                this.errors = "Renseigner un email valide";
+            }
+            else{
+                axios.post('https://627522206d3bc09e106b014f.mockapi.io/emails', this.emailobj)
+            .then((response)=> {this.emailobj.email = ""; this.errors = "Email envoyé"}).catch((error)=> console.log(error));
+            }
+            
+            setTimeout(this.Resetcontent, 5000);
+        }
+    }
 }
 </script>
 
