@@ -9,20 +9,61 @@
             <div class="col-md-3 mb-5">
                 <img :src="coin.image.large" alt="">
             </div>
-            <Line :chart-data="chartData" class="bg-light col-md-6 rounded mb-5"> </Line>
+
+            <div class="col-md-8">
+                <Line :chart-data="chartData" class="bg-light rounded mb-3"> </Line>
+                <div class="bg-light text-dark mb-3  p-3 rounded">
+                    <h3>Social</h3>
+                    <div class="row">
+                        <div class="col-6 text-center p-3 border-end border-primary">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
+                                <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
+                            </svg><br>
+                            {{ coin.community_data.twitter_followers.toLocaleString() }} followers
+                        </div>
+                        <div class="col-6 text-center p-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-reddit" viewBox="0 0 16 16">
+                                <path d="M6.167 8a.831.831 0 0 0-.83.83c0 .459.372.84.83.831a.831.831 0 0 0 0-1.661zm1.843 3.647c.315 0 1.403-.038 1.976-.611a.232.232 0 0 0 0-.306.213.213 0 0 0-.306 0c-.353.363-1.126.487-1.67.487-.545 0-1.308-.124-1.671-.487a.213.213 0 0 0-.306 0 .213.213 0 0 0 0 .306c.564.563 1.652.61 1.977.61zm.992-2.807c0 .458.373.83.831.83.458 0 .83-.381.83-.83a.831.831 0 0 0-1.66 0z"/>
+                                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.828-1.165c-.315 0-.602.124-.812.325-.801-.573-1.9-.945-3.121-.993l.534-2.501 1.738.372a.83.83 0 1 0 .83-.869.83.83 0 0 0-.744.468l-1.938-.41a.203.203 0 0 0-.153.028.186.186 0 0 0-.086.134l-.592 2.788c-1.24.038-2.358.41-3.17.992-.21-.2-.496-.324-.81-.324a1.163 1.163 0 0 0-.478 2.224c-.02.115-.029.23-.029.353 0 1.795 2.091 3.256 4.669 3.256 2.577 0 4.668-1.451 4.668-3.256 0-.114-.01-.238-.029-.353.401-.181.688-.592.688-1.069 0-.65-.525-1.165-1.165-1.165z"/>
+                            </svg><br>
+                            {{ coin.community_data.reddit_subscribers.toLocaleString() }} abonnements
+                        </div>
+                        <div class="col-6 text-center border-end border-primary p-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-reddit" viewBox="0 0 16 16">
+                                <path d="M6.167 8a.831.831 0 0 0-.83.83c0 .459.372.84.83.831a.831.831 0 0 0 0-1.661zm1.843 3.647c.315 0 1.403-.038 1.976-.611a.232.232 0 0 0 0-.306.213.213 0 0 0-.306 0c-.353.363-1.126.487-1.67.487-.545 0-1.308-.124-1.671-.487a.213.213 0 0 0-.306 0 .213.213 0 0 0 0 .306c.564.563 1.652.61 1.977.61zm.992-2.807c0 .458.373.83.831.83.458 0 .83-.381.83-.83a.831.831 0 0 0-1.66 0z"/>
+                                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.828-1.165c-.315 0-.602.124-.812.325-.801-.573-1.9-.945-3.121-.993l.534-2.501 1.738.372a.83.83 0 1 0 .83-.869.83.83 0 0 0-.744.468l-1.938-.41a.203.203 0 0 0-.153.028.186.186 0 0 0-.086.134l-.592 2.788c-1.24.038-2.358.41-3.17.992-.21-.2-.496-.324-.81-.324a1.163 1.163 0 0 0-.478 2.224c-.02.115-.029.23-.029.353 0 1.795 2.091 3.256 4.669 3.256 2.577 0 4.668-1.451 4.668-3.256 0-.114-.01-.238-.029-.353.401-.181.688-.592.688-1.069 0-.65-.525-1.165-1.165-1.165z"/>
+                            </svg><br>
+                            {{ coin.community_data.reddit_average_posts_48h.toLocaleString() }} publications en 48h
+                        </div>
+                        <div class="col-6 text-center p-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-reddit" viewBox="0 0 16 16">
+                                <path d="M6.167 8a.831.831 0 0 0-.83.83c0 .459.372.84.83.831a.831.831 0 0 0 0-1.661zm1.843 3.647c.315 0 1.403-.038 1.976-.611a.232.232 0 0 0 0-.306.213.213 0 0 0-.306 0c-.353.363-1.126.487-1.67.487-.545 0-1.308-.124-1.671-.487a.213.213 0 0 0-.306 0 .213.213 0 0 0 0 .306c.564.563 1.652.61 1.977.61zm.992-2.807c0 .458.373.83.831.83.458 0 .83-.381.83-.83a.831.831 0 0 0-1.66 0z"/>
+                                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.828-1.165c-.315 0-.602.124-.812.325-.801-.573-1.9-.945-3.121-.993l.534-2.501 1.738.372a.83.83 0 1 0 .83-.869.83.83 0 0 0-.744.468l-1.938-.41a.203.203 0 0 0-.153.028.186.186 0 0 0-.086.134l-.592 2.788c-1.24.038-2.358.41-3.17.992-.21-.2-.496-.324-.81-.324a1.163 1.163 0 0 0-.478 2.224c-.02.115-.029.23-.029.353 0 1.795 2.091 3.256 4.669 3.256 2.577 0 4.668-1.451 4.668-3.256 0-.114-.01-.238-.029-.353.401-.181.688-.592.688-1.069 0-.65-.525-1.165-1.165-1.165z"/>
+                            </svg><br>
+                            {{ coin.community_data.reddit_average_comments_48h.toLocaleString() }} commentaires en 48h
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            
             
             <div class="col-md-4">
                 <simulation :coin=coin></simulation>
-                <ul class="list-group">
-                <li class="list-group-item d-flex justify-content-between" v-for="ticker in coin.tickers.slice(0, 5)" :key="ticker.id">
-                    {{ ticker.base }} vers {{ ticker.target}}
-                    <p>{{ ticker.converted_last.usd }} $</p>
-                    <p>{{ ticker.market.name }}</p>
-                </li>
-            </ul>
+                <ul class="list-group mb-3">
+                    <li class="list-group-item border-dark d-flex">
+                        <h3>Tickers</h3>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" v-for="ticker in coin.tickers.slice(0, 5)" :key="ticker.id">
+                        {{ ticker.base }} vers {{ ticker.target}}
+                        <p>{{ ticker.converted_last.usd }} $</p>
+                        <p>{{ ticker.market.name }}</p>
+                    </li>
+                </ul>
+                <Pie :chart-data="Piedata" class="bg-light rounded"> </Pie>
             </div>
 
-            <Pie :chart-data="Piedata" class="col-md-4"> </Pie>
+            
 
             
         </div>
@@ -76,7 +117,7 @@ export default {
                     {
                         backgroundColor: ['#FDCA40', '#F79824', '#EE4266'],
                         data: [this.coin.market_data.high_24h.usd, this.coin.market_data.low_24h.usd, this.coin.market_data.current_price.usd],
-                        hoverOffset: 40,
+                        hoverOffset: 20,
                         color: '#FDCA40'
                     }
                 ]
