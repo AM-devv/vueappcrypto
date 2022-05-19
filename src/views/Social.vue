@@ -7,20 +7,33 @@
                 <div class="card text-dark my-5 col-md-12">
                     <h5 class="card-header">Envoyer votre message</h5>
                     <div class="card-body">
-                        <select class="form-select" v-model="newpost.name" aria-label="Default select example">
-                            
-                            <option value="Astronaute Nasa">Astronaute Nasa</option>
-                            <option value="Astronaute Europe">Astronaute Europe</option>
-                            <option value="Astronaute Asie">Astronaute Asie</option>
+                        <select class="form-select mb-3" v-model="newpost.name" aria-label="Default select example">
+                            <option disabled value="">Choisissez une catégorie</option>
+                            <option value="Evenement">Evenement</option>
+                            <option value="Alerte">Alerte</option>
+                            <option value="News">News</option>
                         </select>
                         <textarea class="form-control mb-3" type="text" v-model="newpost.content" @keyup.enter="AddPost"></textarea>
                         <a href="#" @click="AddPost" class="btn btn-primary">Envoyer</a>
                     </div>
                 </div>
                 <hr>
-            
-                <div v-for="post in SortPosts" :key="post.id" class="card text-dark my-5 col-md-12">
-                    <h5 class="card-header">{{post.name}}</h5>
+
+                <select class="form-select w-25 border-dark" v-model="namechoice" aria-label="Default select example">
+                            <option disabled value="">Choisissez une catégorie</option>
+                            <option value="">Tous</option>
+                            <option value="Evenement">Evenement</option>
+                            <option value="Alerte">Alerte</option>
+                            <option value="News">News</option>
+                </select>
+
+                <div v-for="post in Filtername" :key="post.id" class="card text-dark my-5 col-md-12">
+                    <h5 class="card-header d-flex justify-content-between">{{post.name}}
+                        <button @click="Addlike(post)" class="btn btn-primary rounded-pill"> 
+                            <strong>{{ post.likes }} 👍</strong>
+                        </button> 
+                    </h5>
+                    
                     <div class="card-body">
                         <h5 class="card-title">{{ new Date (post.createdAt).toLocaleString('fr')}}</h5>
                         <p class="card-text">{{post.content}}</p>
@@ -46,8 +59,10 @@ export default {
             newpost:{
                 name:"",
                 content:"",
-                createdAt: ""
-            }
+                createdAt: "",
+                likes: 0
+            },
+            namechoice:""
             
         }
     },
@@ -62,6 +77,9 @@ export default {
             return this.posts.sort((a,b) => {
                 return new Date (b.createdAt) -  new Date(a.createdAt);
                 })
+        },
+        Filtername(){
+            return this.SortPosts.filter((post) => (post.name.includes(this.namechoice)));
         }
     },
 
@@ -75,6 +93,11 @@ export default {
             axios.post('https://627522206d3bc09e106b014f.mockapi.io/posts', this.newpost)
             .then((response)=> {this.newpost.content = ""; this.posts.push(response.data);}).catch((error)=> console.log(error));
             localStorage.setItem("messages", JSON.stringify(this.newpost));
+        },
+        Addlike(post){
+            post.likes++;
+            axios.put(`https://627522206d3bc09e106b014f.mockapi.io/posts/${post.id}`, post)
+            .then((response)=> console.log(response)).catch(error => console.log(error));
         }
     }
 
