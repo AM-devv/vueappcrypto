@@ -14,6 +14,7 @@
                             <option value="News">News</option>
                         </select>
                         <textarea class="form-control mb-3" type="text" v-model="newpost.content" @keyup.enter="AddPost"></textarea>
+                        <p class="text-danger">{{ errors }}</p>
                         <a href="#" @click="AddPost" class="btn btn-primary">Envoyer</a>
                     </div>
                 </div>
@@ -62,8 +63,8 @@ export default {
                 createdAt: "",
                 likes: 0
             },
-            namechoice:""
-            
+            namechoice:"",
+            errors : ""
         }
     },
 
@@ -89,10 +90,18 @@ export default {
             .then((response) => {this.posts = response.data} ).catch(error => console.log(error));
         },
         AddPost(){
-            this.newpost.createdAt = new Date();
-            axios.post('https://627522206d3bc09e106b014f.mockapi.io/posts', this.newpost)
-            .then((response)=> {this.newpost.content = ""; this.posts.push(response.data);}).catch((error)=> console.log(error));
-            localStorage.setItem("messages", JSON.stringify(this.newpost));
+            if(this.newpost.content == ""){
+                this.errors = "Renseigner votre message";
+            }
+            else if(this.newpost.name == ""){
+                this.errors = "Renseigner une catégorie"
+            }
+            else{
+                this.newpost.createdAt = new Date();
+                axios.post('https://627522206d3bc09e106b014f.mockapi.io/posts', this.newpost)
+                .then((response)=> {this.newpost.content = ""; this.posts.push(response.data);}).catch((error)=> console.log(error));
+                localStorage.setItem("messages", JSON.stringify(this.newpost));
+            }
         },
         Addlike(post){
             post.likes++;
