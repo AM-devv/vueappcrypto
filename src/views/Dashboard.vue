@@ -7,7 +7,7 @@
         <div class="row">
             <section class="row col-lg-12 col-12">
                 <h3>Votre dernier message</h3>
-                <div v-if="messages != null" class="card text-dark">
+                <div v-if="messages != null" class="card shadow text-dark">
                     <div class="card-header">
                         {{messages.name}}
                     </div>
@@ -20,7 +20,7 @@
             <section class="row col-lg-6 col-12">
             <h3 v-if="favorites != null">Cryptos favorites {{ favorites.length }}</h3>
             <h4 v-if="favorites == 0 || favorites == null">Aucun favoris</h4>
-            <div v-for="favorite in favorites" :key="favorite.id" class="card text-dark my-5 mx-1 col-12 col-lg-3">
+            <div v-for="favorite in favorites" :key="favorite.id" class="card shadow text-dark my-5 mx-1 col-12 col-lg-3">
                     <h5 class="card-header">{{favorite.name}}</h5>
                     <div class="card-body">
                         <router-link class="btn btn-primary btn-sm" :to="{ name: 'coininfo', params: {id: favorite.id} }">Plus d'infos</router-link>

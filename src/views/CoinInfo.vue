@@ -1,10 +1,12 @@
 <template>
     <div class="row justify-content-center" v-if="coin.market_data">
         <div class="col-10 mt-5 row justify-content-between">
-            <div class="col-md-9">
-                <h2>{{ coin.name }}</h2>
-                <h3>{{ coin.market_data.current_price.usd.toLocaleString() }} $</h3>
-                <div v-html="coin.description.en"></div>
+            <div class="col-md-9 fs-4">
+                <h2 class="fs-1">{{ coin.name }}</h2>
+                <h3 class="fs-2">{{ coin.market_data.current_price.usd.toLocaleString() }} $</h3>
+                <p>Retrouvez ici toutes les informations de la cryptomonnaie : {{ coin.name }} avec ses graphiques,chiffres son simulateur, etc.</p>
+                <p class="text-decoration-underline" v-if="coin.market_data.price_change_percentage_24h > 0">{{ coin.name }} est en hausse de <strong>{{coin.market_data.price_change_percentage_24h}} %</strong> depuis ces dernieres 24h</p>
+                <p class="text-decoration-underline" v-else>{{ coin.name }} est en baisse de <strong>{{coin.market_data.price_change_percentage_24h}} %</strong> depuis ces dernieres 24h</p>
             </div>
             <div class="col-md-3 mb-5">
                 <img :src="coin.image.large" alt="">
@@ -50,11 +52,11 @@
             
             <div class="col-md-4">
                 <simulation class="shadow" :coin=coin></simulation>
-                <ul class="list-group mb-3">
+                <ul class="list-group shadow mb-3">
                     <li class="list-group-item border-dark d-flex">
                         <h3>Tickers</h3>
                     </li>
-                    <li class="list-group-item shadow d-flex justify-content-between" v-for="ticker in coin.tickers.slice(0, 5)" :key="ticker.id">
+                    <li class="list-group-item d-flex justify-content-between" v-for="ticker in coin.tickers.slice(0, 5)" :key="ticker.id">
                         {{ ticker.base }} vers {{ ticker.target}}
                         <p>{{ ticker.converted_last.usd }} $</p>
                         <p>{{ ticker.market.name }}</p>

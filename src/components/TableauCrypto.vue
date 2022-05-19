@@ -1,14 +1,14 @@
 <template>
     <div>
         <div class="row pb-1">
-            <div class="col-md-3">
-                <input type="search" class="form-control" placeholder="Recherche" v-model="searchvalue">
+            <div class="  col-md-3">
+                <input type="search" class="form-control shadow" placeholder="Recherche" v-model="searchvalue">
             </div>
             
-            <span class="btn btn-danger col-md-1" @click="Sortcap">Reset</span>  
+            <span class="btn shadow btn-danger col-md-1" @click="Sortcap">Reset</span>  
         </div>
        
-        <table class="table table-dark table-striped table-hover">
+        <table class="table shadow table-dark table-striped table-hover">
             <thead>
                 <tr>
                     <th role="button" :class="ordername!= null ? 'text-warning'  : '' " @click="SortName">NOM <span v-if="ordername ==true">↑</span> <span v-else-if="ordername == false">↓</span></th>

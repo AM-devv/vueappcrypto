@@ -4,7 +4,7 @@
         <div class="container" >
 
 
-                <div class="card text-dark my-5 col-md-12">
+                <div class="card shadow text-dark my-5 col-md-12">
                     <h5 class="card-header">Envoyer votre message</h5>
                     <div class="card-body">
                         <select class="form-select mb-3" v-model="newpost.name" aria-label="Default select example">
@@ -19,7 +19,7 @@
                 </div>
                 <hr>
 
-                <select class="form-select w-25 border-dark" v-model="namechoice" aria-label="Default select example">
+                <select class="form-select shadow w-25 border-dark" v-model="namechoice" aria-label="Default select example">
                             <option disabled value="">Choisissez une catégorie</option>
                             <option value="">Tous</option>
                             <option value="Evenement">Evenement</option>
@@ -27,7 +27,7 @@
                             <option value="News">News</option>
                 </select>
 
-                <div v-for="post in Filtername" :key="post.id" class="card text-dark my-5 col-md-12">
+                <div v-for="post in Filtername" :key="post.id" class="card shadow text-dark my-5 col-md-12">
                     <h5 class="card-header d-flex justify-content-between">{{post.name}}
                         <button @click="Addlike(post)" class="btn btn-primary rounded-pill"> 
                             <strong>{{ post.likes }} 👍</strong>
