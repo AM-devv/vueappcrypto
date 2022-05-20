@@ -53,7 +53,7 @@
             <div class="col-md-4">
                 <simulation class="shadow" :coin=coin></simulation>
                 <ul class="list-group shadow mb-3">
-                    <li class="list-group-item border-dark d-flex">
+                    <li class="list-group-item d-flex">
                         <h3>Tickers</h3>
                     </li>
                     <li class="list-group-item d-flex justify-content-between" v-for="ticker in coin.tickers.slice(0, 5)" :key="ticker.id">
