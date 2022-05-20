@@ -47,9 +47,7 @@
             </section>
 
             <section class="col-lg-6 col-12">
-                <div class="bg-light shadow rounded text-dark p-3">
-                    <h3>Nouveau composant</h3>
-                </div>
+                <likes></likes>
             </section>
         </div>
         
@@ -62,11 +60,12 @@
 <script>
 import Trending from "../components/Trending.vue"
 import Slider from "../components/Slider.vue"
+import Likes from "../components/Likes.vue"
 
 export default {
     name:"Dashboard",
     components: {
-        Trending,Slider
+        Trending,Slider,Likes
     },
     data(){
         return{
@@ -77,11 +76,7 @@ export default {
     },
     created(){
         this.favorites = JSON.parse(localStorage.getItem('favorites'));
-        this.messages = JSON.parse(localStorage.getItem('messages'));
-
-        
-
-            
+        this.messages = JSON.parse(localStorage.getItem('messages'));            
     },
     methods:{
         Removefav(favorite){

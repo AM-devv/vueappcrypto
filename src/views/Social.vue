@@ -64,11 +64,14 @@ export default {
                 likes: 0
             },
             namechoice:"",
-            errors : ""
+            errors : "",
+            likesme : 0
         }
     },
 
     created(){
+        this.likesme = JSON.parse(localStorage.getItem('likesme'));
+
         this.GetPost();
         //setInterval(this.GetPost, 10000);
     },
@@ -107,6 +110,9 @@ export default {
             post.likes++;
             axios.put(`https://627522206d3bc09e106b014f.mockapi.io/posts/${post.id}`, post)
             .then((response)=> console.log(response)).catch(error => console.log(error));
+
+            this.likesme++;
+            localStorage.setItem("likesme", JSON.stringify(this.likesme));
         }
     }
 
