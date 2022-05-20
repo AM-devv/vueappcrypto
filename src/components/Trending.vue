@@ -1,6 +1,9 @@
 <template>
     <div>
         <ul class="list-group shadow">
+            <li class="list-group-item">
+                <h3>Top 7 tendances</h3>
+            </li>
                <li class="list-group-item d-flex justify-content-between" v-for="trend in trending" :key="trend.item.id">
                 
                 <div>
