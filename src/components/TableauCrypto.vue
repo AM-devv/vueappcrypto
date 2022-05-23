@@ -7,7 +7,7 @@
             
             <span class="btn shadow btn-danger col-2" @click="Sortcap">Reset</span>  
         </div>
-       <div class="table-responsive">
+       <div class="table-responsive rounded">
            <table class="table shadow table-dark table-striped table-hover">
             <thead>
                 <tr>

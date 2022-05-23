@@ -1,7 +1,7 @@
 <template>
     <div class="row justify-content-center">
         
-        <section class="col-md-10">
+        <section class="col-10">
             <h1 class="pb-5">Voici les 100 cryptomonnaies les plus importantes du marché actuel</h1>
             <tableau-crypto></tableau-crypto>  
         </section>

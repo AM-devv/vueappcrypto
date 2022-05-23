@@ -49,6 +49,10 @@
             <section class="col-lg-6 col-12">
                 <likes></likes>
             </section>
+
+            <section class="col-12 mb-5">
+                <lastposts></lastposts>
+            </section>
         </div>
         
             
@@ -61,11 +65,12 @@
 import Trending from "../components/Trending.vue"
 import Slider from "../components/Slider.vue"
 import Likes from "../components/Likes.vue"
+import Lastposts from "../components/Lastposts.vue"
 
 export default {
     name:"Dashboard",
     components: {
-        Trending,Slider,Likes
+        Trending,Slider,Likes,Lastposts
     },
     data(){
         return{
