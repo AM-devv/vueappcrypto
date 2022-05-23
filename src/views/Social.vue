@@ -41,6 +41,10 @@
                         <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
                     </div>
                 </div>
+
+                <div class="p-5 fs-1" v-if="Filtername.length == 0">
+                    Aucuns messages dans cette catégorie
+                </div>
             
         </div>
     </div>

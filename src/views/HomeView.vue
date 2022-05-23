@@ -1,21 +1,21 @@
 <template>
   <div class="row justify-content-center">
-    <section class="col-md-10 row justify-content-between">
-      <div class="col-md-6">
+    <section class="col-10 row justify-content-between">
+      <div class="col-6">
         <h1 class="pb-5">Bienvenu sur CRYPTOTHEMOON <br> l'application web qui va <br> vous simplifier la vie <br> avec la cryptomonnaie</h1>
         <router-link class="btn btn-light" :to="{ name: 'dashboard' }">Aller vers mon dashboard →</router-link>
       </div>
       
-      <div class="col-md-6"><img class="img-fluid" src="../assets/rocket.png" alt="lunebitcoin"></div>
+      <div class="col-6"><img class="img-fluid" src="../assets/rocket.png" alt="lunebitcoin"></div>
       
     </section>
-    <section class="col-md-10">
+    <section class="col-10">
       <cards></cards>
     </section>
-    <section class="col-md-10">
+    <section class="col-10">
       <questions></questions>
     </section>
-    <section class="col-md-10">
+    <section class="col-10">
       <tableau-crypto :limit=10></tableau-crypto>
     </section>
     
