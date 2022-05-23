@@ -32,9 +32,12 @@
 
                 <div v-for="post in Filtername" :key="post.id" class="card shadow text-dark my-5 col-md-12">
                     <h5 class="card-header d-flex justify-content-between">{{post.name}}
-                        <button @click="Addlike(post)" class="btn btn-primary rounded-pill"> 
+                        <button v-if="!postsliked.some(postli => postli.id === post.id)" @click="Addlike(post)" class="btn btn-primary rounded-pill"> 
                             <strong>{{ post.likes }} 👍</strong>
-                        </button> 
+                        </button>
+                        <button v-else class="btn btn-primary disabled rounded-pill">
+                            <strong>{{ post.likes }} 👍</strong>
+                        </button>
                     </h5>
                     
                     <div class="card-body">
@@ -64,6 +67,7 @@ export default {
     data(){
         return{
             posts:[],
+            postsliked: JSON.parse(localStorage.getItem('postsliked')) || [],
             newpost:{
                 name:"",
                 content:"",
@@ -121,6 +125,9 @@ export default {
 
             this.likesme++;
             localStorage.setItem("likesme", JSON.stringify(this.likesme));
+
+            this.postsliked.push(post);
+            localStorage.setItem("postsliked", JSON.stringify(this.postsliked));
         }
     }
 

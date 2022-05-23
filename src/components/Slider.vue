@@ -4,7 +4,9 @@
             <div class="carousel-inner">
                 <div v-for="cryp in cryps" :key="cryp.id" :class="cryp.id == 'bitcoin' ? 'active'  : '' " class="carousel-item text-center">
                 <img :src="cryp.image" width="250" height="250" alt="...">
-                <p class="fs-1">{{ cryp.current_price.toLocaleString() }} $</p>
+                <p class="fs-1">
+                    <strong>{{ cryp.current_price.toLocaleString() }} $</strong>
+                </p>
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
