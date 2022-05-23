@@ -15,7 +15,9 @@
                         </select>
                         <textarea class="form-control mb-3" type="text" v-model="newpost.content" @keyup.enter="AddPost"></textarea>
                         <p class="text-danger">{{ errors }}</p>
-                        <a href="#" @click="AddPost" class="btn btn-primary">Envoyer</a>
+                        <vue-recaptcha @verify="display = true" @expired="display = false" sitekey="6LcMww8gAAAAAO43c8j5uBAq43y5COT8Z6BcIH8S"></vue-recaptcha>
+                        <button v-if="display" @click="AddPost" class="btn mt-3 btn-primary">Envoyer</button>
+                        
                     </div>
                 </div>
                 <hr>
@@ -52,11 +54,12 @@
 
 <script>
 import axios from 'axios'
+import {VueRecaptcha} from 'vue-recaptcha'
 
 export default {
     name: "Social",
     components:{
-
+        VueRecaptcha
     },
     data(){
         return{
@@ -69,7 +72,8 @@ export default {
             },
             namechoice:"",
             errors : "",
-            likesme : 0
+            likesme : 0,
+            display : false
         }
     },
 

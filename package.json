@@ -11,6 +11,7 @@
     "chart.js": "^3.7.1",
     "vue": "^3.2.33",
     "vue-chartjs": "^4.0.6",
+    "vue-recaptcha": "^2.0.2",
     "vue-router": "^4.0.14"
   },
   "devDependencies": {
