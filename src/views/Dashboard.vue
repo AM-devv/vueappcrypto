@@ -1,8 +1,8 @@
 <template>
     <div class="container mt-5">
     
-            <h2>Votre tableau de bord</h2>
-            <h3>Vous retrouverez ici vos informations ...</h3>
+            <h2 class="fs-1">Tableau de bord</h2>
+            <span class="ms-1">Vous retrouverez ici vos informations ...</span>
         
         <div class="row">
             <section class="col-lg-12 col-12">

@@ -5,8 +5,9 @@
                 <h2 class="fs-1">{{ coin.name }}</h2>
                 <h3 class="fs-2">{{ coin.market_data.current_price.usd.toLocaleString() }} $</h3>
                 <p>Retrouvez ici toutes les informations de la cryptomonnaie : {{ coin.name }} avec ses graphiques,chiffres son simulateur, etc.</p>
-                <p class="text-decoration-underline" v-if="coin.market_data.price_change_percentage_24h > 0">{{ coin.name }} est en hausse de <strong>{{coin.market_data.price_change_percentage_24h}} %</strong> depuis ces dernieres 24h</p>
-                <p class="text-decoration-underline" v-else>{{ coin.name }} est en baisse de <strong>{{coin.market_data.price_change_percentage_24h}} %</strong> depuis ces dernieres 24h</p>
+                <p class="text-decoration-underline" v-if="coin.market_data.price_change_percentage_24h > 0">{{ coin.name }} est en hausse de <strong class="text-success">{{coin.market_data.price_change_percentage_24h}} %</strong> depuis ces dernieres 24h</p>
+                <p class="text-decoration-underline" v-else>{{ coin.name }} est en baisse de <strong class="text-danger">{{coin.market_data.price_change_percentage_24h}} %</strong> depuis ces dernieres 24h</p>
+                <a class="btn btn-primary" :href="coin.links.homepage[0]" target="_blank">Site officiel</a>
             </div>
             <div class="col-md-3 mb-5">
                 <img :src="coin.image.large" alt="">
@@ -62,12 +63,14 @@
                         <p>{{ ticker.market.name }}</p>
                     </li>
                 </ul>
-                <Pie :chart-data="Piedata" class="bg-light shadow rounded"> </Pie>
+                <Pie :chart-data="Piedata" class="bg-light shadow mb-3 rounded"> </Pie>
+
+               
             </div>
 
-            
+     
 
-            
+                   
         </div>
         
     </div>

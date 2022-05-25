@@ -1,10 +1,10 @@
 <template>
-    <div id="test" class="justify-content-center bg-light row">
+    <div id="test" class="justify-content-center bg-dark text-light row">
         <footer class=" col-md-10 text-dark row py-5 align-items-center">
             <ul class="text-dark nav flex-column col-md-4">
                 <li class="nav-item">
                     <a class="navbar-brand" href="#">
-                        <img src="../assets/logovuecrpdark.png" width="250" alt="logo">
+                        <img src="../assets/logovuecrp.png" width="250" alt="logo">
                     </a>
                 </li>
                 <li class="nav-item"><router-link class="nav-link" :to="{ name: 'home' }">Acceuil</router-link></li>
@@ -14,9 +14,9 @@
                 <li class="nav-item"><router-link class="nav-link" :to="{ name: 'dashboard' }">Dashboard</router-link></li>
             </ul>
 
-            <p class="col-md-4">Copyright © Tous droits réservé</p>
+            <p class="col-md-4 text-light">Copyright © Tous droits réservé</p>
 
-            <div class="col-md-4">
+            <div class="col-md-4 text-light">
                 <form>
                     <h5>Inscrivez-vous à notre newsletter</h5>
                     <p>Les meilleurs actu de la crypto</p>
