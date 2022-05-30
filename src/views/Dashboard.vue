@@ -24,8 +24,8 @@
                     <div class="row">
                         <h3 v-if="favorites != null">Cryptos favorites {{ favorites.length }} <button @click="RemoveAll" class="btn btn-danger">Tout supprimer</button></h3>
                     <h4 v-if="favorites == 0 || favorites == null">Aucun favoris</h4>
-                    <div v-for="favorite in favorites" :key="favorite.id" class="card shadow bg-dark text-light my-3 mx-1 col-10 col-md-4 col-lg-3">
-                        <h5 class="card-header">{{favorite.name}}</h5>
+                    <div v-for="favorite in favorites" :key="favorite.id" class="card border-0 shadow bg-white text-dark my-3 mx-1 col-10 col-md-4 col-lg-3">
+                        <h5 class="p-2">{{favorite.name}}</h5>
                         <div class="card-body">
                             <router-link class="btn btn-primary btn-sm" :to="{ name: 'coininfo', params: {id: favorite.id} }">Plus d'infos</router-link>
                             <hr>
@@ -44,10 +44,8 @@
             <section class="col-lg-6 mb-3 col-12">
                 <trending class="mb-3"></trending>
 
-                <likes></likes>
-            </section>
+                <likes class="mb-3"></likes>
 
-            <section class="col-12 mb-5">
                 <lastposts></lastposts>
             </section>
         </div>
@@ -94,6 +92,3 @@ export default {
 }
 </script>
 
-<style scoped>
-
-</style>

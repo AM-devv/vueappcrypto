@@ -8,7 +8,7 @@
             <span class="btn shadow btn-danger col-2" @click="Sortcap">Reset</span>  
         </div>
        <div class="table-responsive rounded">
-           <table class="table shadow table-dark table-striped table-hover">
+           <table class="table shadow table-light table-striped table-hover">
             <thead>
                 <tr>
                     <th role="button" :class="ordername!= null ? 'text-warning'  : '' " @click="SortName">NOM <span v-if="ordername ==true">↑</span> <span v-else-if="ordername == false">↓</span></th>
