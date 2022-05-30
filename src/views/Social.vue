@@ -3,7 +3,8 @@
         
         <div class="container" >
 
-
+                <h1 class="pt-5">Social</h1>
+                <h2 class="fs-5">Envoyer un message à la communauté francophone de la crypto pour faire part d'une nouveauté, alerte, d'un évenement</h2>
                 <div class="card shadow text-dark my-5 col-md-12">
                     <h5 class="card-header">Envoyer votre message</h5>
                     <div class="card-body">
