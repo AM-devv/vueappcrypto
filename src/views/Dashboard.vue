@@ -5,8 +5,9 @@
             <span class="ms-1">Vous retrouverez ici vos informations ...</span>
         
         <div class="row mt-5">
-            <section class="col-lg-12 mb-3 col-12">
-                <div class="bg-light shadow text-dark p-3 rounded">
+
+            <section class="col-lg-6 mb-3 col-12">
+                <div class="bg-light shadow text-dark p-3 mb-3 rounded">
                     <h3>Votre dernier message</h3>
                     <div v-if="messages != null" class="card shadow text-dark">
                         <div class="card-header">
@@ -18,8 +19,6 @@
                     </div>
                     <h4 v-if="messages == null">Aucun message</h4>
                 </div>
-            </section>
-            <section class="col-lg-6 mb-3 col-12">
                 <div class="bg-light shadow mb-3 p-3 text-dark rounded justify-content-center">
                     <div class="row">
                         <h3 v-if="favorites != null">Cryptos favorites {{ favorites.length }} <button @click="RemoveAll" class="btn btn-danger">Tout supprimer</button></h3>
@@ -42,6 +41,8 @@
             </section>
 
             <section class="col-lg-6 mb-3 col-12">
+                <timecounter class="mb-3"></timecounter>
+
                 <trending class="mb-3"></trending>
 
                 <likes class="mb-3"></likes>
@@ -61,11 +62,12 @@ import Trending from "../components/Trending.vue"
 import Slider from "../components/Slider.vue"
 import Likes from "../components/Likes.vue"
 import Lastposts from "../components/Lastposts.vue"
+import Timecounter from "../components/Timecounter.vue"
 
 export default {
     name:"Dashboard",
     components: {
-        Trending,Slider,Likes,Lastposts
+        Trending,Slider,Likes,Lastposts,Timecounter
     },
     data(){
         return{

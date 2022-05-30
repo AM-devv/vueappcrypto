@@ -1,10 +1,10 @@
 <template>
     <div>
         <ul class="list-group shadow">
-            <li class="list-group-item">
+            <li class="list-group-item list-group-item-light">
                 <h3>Top 7 tendances</h3>
             </li>
-               <li class="list-group-item d-flex justify-content-between" v-for="trend in trending" :key="trend.item.id">
+               <li class="list-group-item list-group-item-light d-flex justify-content-between" v-for="trend in trending" :key="trend.item.id">
                 
                 <div>
                     <img :src="trend.item.small" alt="logo" width="25" height="25">

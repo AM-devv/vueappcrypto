@@ -44,6 +44,24 @@ import Tuto from "./components/Tuto.vue";
 export default {
   components: {
     FooterPrincipal, Tuto
+  },
+
+  data(){
+    return{
+      timecounter: 0
+    }
+  },
+
+  created(){
+    this.timecounter = JSON.parse(localStorage.getItem('timer'));
+    setInterval(this.timecounteraction,1000);
+  },
+
+  methods:{
+    timecounteraction(){
+      this.timecounter++
+      localStorage.setItem("timer", JSON.stringify(this.timecounter));
+    }
   }
 }
 </script>
