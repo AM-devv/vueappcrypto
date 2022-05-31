@@ -16,7 +16,8 @@
             <hr>
                 <div class="mb-5" v-if="investissementobj == null">
                     <h3 class="mb-3">Investissez</h3>
-                    <input class="form-control mb-3" v-model="investissement" type="number" placeholder="Investir">
+                    <input class="form-control mb-3" v-model="investissement" type="number" placeholder="Montant que vous voulez investir">
+                    <p class="text-danger">{{ error }}</p>
                     <button class="btn btn-primary" @click="Transaction">Inverstir</button>
                 </div>
                 <div v-else class="investissement p-3 mb-5 shadow rounded">
@@ -113,7 +114,8 @@ export default {
             investissement:"",
             investissementobj:[],
 
-            boiteinvest:[]
+            boiteinvest:[],
+            error : ""
             
         }
         
@@ -164,30 +166,39 @@ export default {
     methods : {
          GetInfo(){
             axios.get(`https://api.coingecko.com/api/v3/coins/${this.id}`)
-            .then((response) => {this.coin = response.data; console.log(response.data)} ).catch(error => console.log(error));
+            .then((response) => {this.coin = response.data;} ).catch(error => console.log(error));
         },
 
         Transaction(){
-            this.wallet =  this.wallet - this.investissement;
-            localStorage.setItem("wallet", JSON.stringify(this.wallet));
-            localStorage.setItem(`${this.coin.id}info`,JSON.stringify({
-                price: this.coin.market_data.current_price.usd,
-                invest: this.investissement,
-                id: this.id
-            }));
-            this.investissementobj = JSON.parse(localStorage.getItem(`${this.coin.id}info`))
 
-            if(JSON.parse(localStorage.getItem("boiteinvest")) == null){
-                this.boiteinvest.push(this.investissementobj);
-                localStorage.setItem("boiteinvest", JSON.stringify(this.boiteinvest));
+            if(this.wallet > this.investissement){
+                this.wallet =  this.wallet - this.investissement;
+                localStorage.setItem("wallet", JSON.stringify(this.wallet));
+                localStorage.setItem(`${this.coin.id}info`,JSON.stringify({
+                    price: this.coin.market_data.current_price.usd,
+                    invest: this.investissement,
+                    id: this.id
+                }));
+                this.investissementobj = JSON.parse(localStorage.getItem(`${this.coin.id}info`))
+
+                if(JSON.parse(localStorage.getItem("boiteinvest")) == null){
+                    this.boiteinvest.push(this.investissementobj);
+                    localStorage.setItem("boiteinvest", JSON.stringify(this.boiteinvest));
+                }
+                else{
+                    this.boiteinvest = JSON.parse(localStorage.getItem("boiteinvest"));
+                    this.boiteinvest.push(this.investissementobj);
+                    localStorage.setItem("boiteinvest", JSON.stringify(this.boiteinvest));
+                }
             }
             else{
-                this.boiteinvest = JSON.parse(localStorage.getItem("boiteinvest"));
-                this.boiteinvest.push(this.investissementobj);
-                localStorage.setItem("boiteinvest", JSON.stringify(this.boiteinvest));
+                this.error = "Pas assez de Moons !";
+                setTimeout(this.Resetcontent, 3000);
             }
-            
 
+        },
+        Resetcontent(){
+            this.error = "";
         },
         Retirer(){
             let multiple = this.coin.market_data.current_price.usd / this.investissementobj.price;
@@ -209,6 +220,6 @@ export default {
 <style scoped>
 .investissement{
     background: rgb(180, 86, 149);
-    background: linear-gradient(90deg, rgba(233, 84, 221, 0.481) 0%, rgba(255,255,255,0.8) 100%);
+    background: linear-gradient(90deg, rgba(237, 178, 231, 0.481) 0%, rgba(255,255,255,0.8) 100%);
 }
 </style>
