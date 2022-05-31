@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import AboutView from '../views/AboutView.vue'
+import WalletSim from '../views/WalletSim.vue'
 import CoinInfo from '../views/CoinInfo.vue'
 import Prix from '../views/Prix.vue'
 import Social from '../views/Social.vue'
@@ -16,9 +16,9 @@ const router = createRouter({
       component: HomeView
     },
     {
-      path: '/about',
-      name: 'about',
-      component: AboutView
+      path: '/walletsim',
+      name: 'walletsim',
+      component: WalletSim
     },
     {
       path: '/coins/:id',

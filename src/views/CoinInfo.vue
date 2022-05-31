@@ -13,6 +13,24 @@
                 <img :src="coin.image.large" alt="">
             </div>
 
+            <hr>
+                <div class="mb-5" v-if="investissementobj == null">
+                    <h3 class="mb-3">Investissez</h3>
+                    <input class="form-control mb-3" v-model="investissement" type="number" placeholder="Investir">
+                    <button class="btn btn-primary" @click="Transaction">Inverstir</button>
+                </div>
+                <div v-else class="investissement p-3 mb-5 shadow rounded">
+                    <h3>Votre investissement</h3>
+                    <div class="row text-center p-3">
+                        <h4 class="col-md-6">Prix au moment de l'investissement : <br> {{ investissementobj.price }} ☾</h4>
+                        <h4 class="col-md-6">Somme investie : <br> {{ investissementobj.invest }} ☾</h4>
+
+                        <h4 class="col-md-6">Prix maintenant : <br> {{ coin.market_data.current_price.usd }} ☾</h4>
+                        <h4 class="col-md-6">Ce que vous pouvez retirer : <br> {{ (investissementobj.invest * coin.market_data.current_price.usd / investissementobj.price).toLocaleString() }} ☾</h4>
+                    </div>
+                    <button class="btn btn-success" @click="Retirer">Retirer</button>
+                </div>
+
             <div class="col-md-8">
                 <Line :chart-data="chartData" class="bg-light shadow rounded mb-3"> </Line>
                 <div class="bg-light shadow text-dark mb-3  p-3 rounded">
@@ -90,6 +108,10 @@ export default {
     data(){
         return{
             coin:[],
+
+            wallet:0,
+            investissement:"",
+            investissementobj:[]
             
         }
         
@@ -128,21 +150,46 @@ export default {
                 ]
             }
 
-        }
+        },
     },
     created(){
          this.GetInfo();
         //setInterval(this.GetInfo,10000);
+
+        this.wallet = JSON.parse(localStorage.getItem('wallet'));
+        this.investissementobj = JSON.parse(localStorage.getItem(`${this.id}info`));
     },
     methods : {
          GetInfo(){
             axios.get(`https://api.coingecko.com/api/v3/coins/${this.id}`)
             .then((response) => {this.coin = response.data; console.log(response.data)} ).catch(error => console.log(error));
+        },
+
+        Transaction(){
+            this.wallet =  this.wallet - this.investissement;
+            localStorage.setItem("wallet", JSON.stringify(this.wallet));
+            localStorage.setItem(`${this.coin.id}info`,JSON.stringify({
+                price: this.coin.market_data.current_price.usd,
+                invest: this.investissement
+            }));
+            this.investissementobj = JSON.parse(localStorage.getItem(`${this.coin.id}info`))
+        },
+        Retirer(){
+            let multiple = this.coin.market_data.current_price.usd / this.investissementobj.price;
+            let gains = this.investissementobj.invest * multiple;
+            this.wallet = this.wallet + gains;
+            localStorage.setItem("wallet", JSON.stringify(this.wallet));
+            this.investissementobj = null;
+            localStorage.removeItem(`${this.coin.id}info`);
+
         }
     }
 }
 </script>
 
 <style scoped>
-
+.investissement{
+    background: rgb(180, 86, 149);
+    background: linear-gradient(90deg, rgba(233, 84, 221, 0.481) 0%, rgba(255,255,255,0.8) 100%);
+}
 </style>
