@@ -78,7 +78,7 @@ export default {
     },
     created(){
         this.favorites = JSON.parse(localStorage.getItem('favorites'));
-        this.messages = JSON.parse(localStorage.getItem('messages'));            
+        this.messages = JSON.parse(localStorage.getItem('messages'));    
     },
     methods:{
         Removefav(favorite){

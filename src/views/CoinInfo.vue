@@ -111,7 +111,9 @@ export default {
 
             wallet:0,
             investissement:"",
-            investissementobj:[]
+            investissementobj:[],
+
+            boiteinvest:[]
             
         }
         
@@ -170,9 +172,22 @@ export default {
             localStorage.setItem("wallet", JSON.stringify(this.wallet));
             localStorage.setItem(`${this.coin.id}info`,JSON.stringify({
                 price: this.coin.market_data.current_price.usd,
-                invest: this.investissement
+                invest: this.investissement,
+                id: this.id
             }));
             this.investissementobj = JSON.parse(localStorage.getItem(`${this.coin.id}info`))
+
+            if(JSON.parse(localStorage.getItem("boiteinvest")) == null){
+                this.boiteinvest.push(this.investissementobj);
+                localStorage.setItem("boiteinvest", JSON.stringify(this.boiteinvest));
+            }
+            else{
+                this.boiteinvest = JSON.parse(localStorage.getItem("boiteinvest"));
+                this.boiteinvest.push(this.investissementobj);
+                localStorage.setItem("boiteinvest", JSON.stringify(this.boiteinvest));
+            }
+            
+
         },
         Retirer(){
             let multiple = this.coin.market_data.current_price.usd / this.investissementobj.price;
@@ -181,6 +196,10 @@ export default {
             localStorage.setItem("wallet", JSON.stringify(this.wallet));
             this.investissementobj = null;
             localStorage.removeItem(`${this.coin.id}info`);
+
+            this.boiteinvest = JSON.parse(localStorage.getItem("boiteinvest"));
+            this.boiteinvest = this.boiteinvest.filter(el => el.id !== this.id);
+            localStorage.setItem("boiteinvest", JSON.stringify(this.boiteinvest));
 
         }
     }

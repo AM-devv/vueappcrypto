@@ -9,6 +9,13 @@
               <input class="form-control mb-3" v-model="wallet" type="number">
               <button class="btn btn-primary" @click="Fillwallet">Valider</button>
             </div>
+
+            <div class="row">
+              <div class="col-md-2 bg-light p-3 rounded shadow m-3" v-for="invest in boiteinvest" :key="invest.id">
+                <h4 class="mb-3">{{ invest.id }}</h4>
+                <router-link class="btn btn-primary" :to="{ name: 'coininfo', params: {id: invest.id} }">Voir investissement</router-link>
+              </div>
+            </div>
    
   </div>
 </template>
@@ -19,10 +26,13 @@ export default {
 
   data(){
     return{
-      wallet : 0
+      wallet : 0,
+      boiteinvest :[]
     }
   },
-
+  created(){
+    this.boiteinvest = JSON.parse(localStorage.getItem("boiteinvest"));
+  },
   methods:{
     Fillwallet(){
       localStorage.setItem("wallet", JSON.stringify(this.wallet));
