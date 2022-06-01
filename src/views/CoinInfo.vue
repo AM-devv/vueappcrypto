@@ -171,7 +171,7 @@ export default {
 
         Transaction(){
 
-            if(this.wallet > this.investissement){
+            if(this.wallet >= this.investissement){
                 this.wallet =  this.wallet - this.investissement;
                 localStorage.setItem("wallet", JSON.stringify(this.wallet));
                 localStorage.setItem(`${this.coin.id}info`,JSON.stringify({
