@@ -177,7 +177,8 @@ export default {
                 localStorage.setItem(`${this.coin.id}info`,JSON.stringify({
                     price: this.coin.market_data.current_price.usd,
                     invest: this.investissement,
-                    id: this.id
+                    id: this.id,
+                    image: this.coin.image.thumb
                 }));
                 this.investissementobj = JSON.parse(localStorage.getItem(`${this.coin.id}info`))
 

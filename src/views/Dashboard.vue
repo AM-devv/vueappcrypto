@@ -34,9 +34,20 @@
                     </div>
                 </div>
 
-                <div class="bg-light shadow rounded text-dark p-3">
+                <div class="bg-light mb-3 shadow rounded text-dark p-3">
                     <h3>Toutes les cryptos</h3>
                     <slider></slider>
+                </div>
+
+                <div class="bg-light shadow rounded text-dark p-3">
+                    <h3>WalletSim</h3>
+                    <router-link class="btn btn-primary" :to="{ name: 'walletsim' }">Voir les investissements</router-link>
+                    <div class="row">
+                        <div v-for="invest in investissements" class="col-10 col-lg-4 bg-light p-3 rounded shadow m-3" :key="invest.id">
+                            <h4 class=" upper mb-3">{{ invest.id }} <img :src="invest.image" alt="logo"></h4>
+                            <router-link class="btn btn-sm btn-primary" :to="{ name: 'coininfo', params: {id: invest.id} }">Plus d'infos</router-link>
+                        </div>
+                    </div>
                 </div>
             </section>
 
@@ -73,12 +84,16 @@ export default {
         return{
             favorites:[],
             
-            messages:[]
+            messages:[],
+
+            investissements:[]
         }
     },
     created(){
         this.favorites = JSON.parse(localStorage.getItem('favorites'));
-        this.messages = JSON.parse(localStorage.getItem('messages'));    
+        this.messages = JSON.parse(localStorage.getItem('messages')); 
+        this.investissements = JSON.parse(localStorage.getItem('boiteinvest'));
+
     },
     methods:{
         Removefav(favorite){
@@ -94,3 +109,8 @@ export default {
 }
 </script>
 
+<style scoped>
+.upper::first-letter{
+    text-transform: uppercase;
+}
+</style>

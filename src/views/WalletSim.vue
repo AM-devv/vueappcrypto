@@ -12,7 +12,7 @@
 
             <div class="row">
               <div class="col-md-2 bg-light p-3 rounded shadow m-3" v-for="invest in boiteinvest" :key="invest.id">
-                <h4 class="mb-3">{{ invest.id }}</h4>
+                <h4 class="upper mb-3">{{ invest.id }} <img :src="invest.image" alt="logo"></h4>
                 <router-link class="btn btn-primary" :to="{ name: 'coininfo', params: {id: invest.id} }">Voir investissement</router-link>
               </div>
             </div>
@@ -44,5 +44,8 @@ export default {
 <style scoped>
 .moons{
   color: blueviolet;
+}
+.upper::first-letter{
+    text-transform: uppercase;
 }
 </style>
