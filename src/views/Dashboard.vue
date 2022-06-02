@@ -43,7 +43,7 @@
                     <h3>WalletSim</h3>
                     <router-link class="btn btn-primary" :to="{ name: 'walletsim' }">Voir les investissements</router-link>
                     <div class="row">
-                        <div v-for="invest in investissements" class="col-10 col-lg-4 bg-light p-3 rounded shadow m-3" :key="invest.id">
+                        <div v-for="invest in investissements" class="col-10 col-lg-5 bg-light p-3 rounded shadow m-3" :key="invest.id">
                             <h4 class=" upper mb-3">{{ invest.id }} <img :src="invest.image" alt="logo"></h4>
                             <router-link class="btn btn-sm btn-primary" :to="{ name: 'coininfo', params: {id: invest.id} }">Plus d'infos</router-link>
                         </div>

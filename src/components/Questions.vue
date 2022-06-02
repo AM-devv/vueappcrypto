@@ -9,7 +9,7 @@
                 </h2>
                 <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, veritatis.
+                        C'est un moyen de diversifier ses investissements dans un marché en plein essor
                     </div>
                 </div>
             </div>
@@ -21,7 +21,7 @@
                 </h2>
                 <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequatur, autem!
+                        La réponse est oui , malheureusement tous les investissements qui peuvent rapporter beaucoup d'argent sont risqués.
                     </div>
                 </div>
             </div>
@@ -33,7 +33,7 @@
                 </h2>
                 <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, magni!
+                        Pas forcément vous pouvez commencer avec n'importe quelle somme et augmenter petit à petit.
                     </div>
                 </div>
             </div>
