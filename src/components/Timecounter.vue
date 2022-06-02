@@ -4,7 +4,7 @@
             <h3>Temps passé sur l'application</h3>
             <div class="text-center p-5">
                 <div v-if="timecounter == 0" class="spinner-border" role="status"></div>
-                <h4 v-else class="timestyle">{{ new Date(timecounter*1000).toLocaleString('fr',{ timeZone: 'UTC' }).substr(13) }} ⏱</h4>
+                <h4 v-else class="timestyle">{{ h }}:{{ m }}:{{ s }} ⏱</h4>
             </div>
         </div>
     </div>
@@ -16,16 +16,25 @@ export default {
 
     data(){
         return{
-            timecounter : 0
+            timecounter : 0,
+            h:0,
+            m:0,
+            s:0,
         }
     },
 
     created(){
+        this.Gettime();
         setInterval(this.Gettime,1000);
     },
     methods:{
         Gettime(){
             this.timecounter = JSON.parse(localStorage.getItem('timer'));
+
+            this.h = Math.floor(this.timecounter/ 3600).toString().padStart(2,'0');
+            this.m = Math.floor(this.timecounter % 3600 / 60).toString().padStart(2,'0');
+            this.s = Math.floor(this.timecounter % 60).toString().padStart(2,'0');
+
         }
     }
 }
