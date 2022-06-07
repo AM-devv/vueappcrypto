@@ -20,11 +20,12 @@
                     <h4 v-if="messages == null">Aucun message</h4>
                 </div>
                 <div class="bg-light shadow mb-3 p-3 text-dark rounded justify-content-center">
-                    <div class="row">
+                    
                         <h3 v-if="favorites != null">Cryptos favorites {{ favorites.length }} <button @click="RemoveAll" class="btn btn-danger">Tout supprimer</button></h3>
+                    <div class="row">
                     <h4 v-if="favorites == 0 || favorites == null">Aucun favoris</h4>
-                    <div v-for="favorite in favorites" :key="favorite.id" class="card border-0 shadow bg-white text-dark my-3 mx-1 col-10 col-md-4 col-lg-3">
-                        <h5 class="p-2">{{favorite.name}}</h5>
+                    <div v-for="favorite in favorites" :key="favorite.id" class="col-10 col-lg-5 bg-light p-3 rounded shadow m-3">
+                        <h4>{{favorite.name}}</h4>
                         <div class="card-body">
                             <router-link class="btn btn-primary btn-sm" :to="{ name: 'coininfo', params: {id: favorite.id} }">Plus d'infos</router-link>
                             <hr>

@@ -16,6 +16,12 @@
                 <button class="btn btn-transparent rounded-pill" @click="limit = limit + 3" >
                     <strong>...</strong>
                 </button>
+                <span v-if="limit > 3"> | 
+                    <button class="btn btn-transparent rounded-pill" @click="limit = 3">
+                        <strong>x</strong>
+                    </button>
+                </span>
+                
             </div>
             
         </div>
