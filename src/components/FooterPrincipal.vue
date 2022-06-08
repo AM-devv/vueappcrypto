@@ -8,7 +8,7 @@
                     </a>
                 </li>
                 <li class="nav-item"><router-link class="nav-link" :to="{ name: 'home' }">Acceuil</router-link></li>
-                <li class="nav-item"><router-link class="nav-link" :to="{ name: 'walletsim' }">A propos</router-link></li>
+                <li class="nav-item"><router-link class="nav-link" :to="{ name: 'walletsim' }">WalletSim</router-link></li>
                 <li class="nav-item"><router-link class="nav-link" :to="{ name: 'prix' }">Prix</router-link></li>
                 <li class="nav-item"><router-link class="nav-link" :to="{ name: 'social' }">Social</router-link></li>
                 <li class="nav-item"><router-link class="nav-link" :to="{ name: 'dashboard' }">Dashboard</router-link></li>

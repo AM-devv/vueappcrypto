@@ -93,4 +93,10 @@ background-size: cover;
 .moons{
   color: blueviolet;
 }
+
+li .router-link-active{
+  text-decoration: underline #0d6efd;
+  text-decoration-thickness: 0.2em;
+  text-underline-offset: 0.2em;
+}
 </style>
