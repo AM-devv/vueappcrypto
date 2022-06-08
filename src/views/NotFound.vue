@@ -1,8 +1,20 @@
 <template>
-    <div>
-        <div class="vh-100">
-          <iframe src='https://my.spline.design/roomrelaxingcopy-b94b4c804196f6543722abd0fe97db6e/' frameborder='0' width='100%' height='100%'></iframe>  
+    <div class="">
+        <div class="notfound d-flex justify-content-center">
+           <!-- <img class="w-100" src="../assets/notfound.jpg" alt=""> -->
+           <button class="btn btn-danger btn-lg shadow">Retourner à l'accueil</button>
         </div>
         
     </div>
 </template>
+
+<style scoped>
+.notfound{
+    background-image: url('../assets/notfound.jpg');
+    height: 100vh;
+    width: 100vw;
+    background-position: center;
+    background-size: cover;
+    align-items: center;
+}
+</style>
