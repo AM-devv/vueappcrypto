@@ -6,7 +6,7 @@
   <path fill-rule="evenodd" d="M6.664 15.889A8 8 0 1 1 9.336.11a8 8 0 0 1-2.672 15.78zm-4.665-4.283A11.945 11.945 0 0 1 8 10c2.186 0 4.236.585 6.001 1.606a7 7 0 1 0-12.002 0z"/>
 </svg>
             <div class="card-body">
-                <p class="card-text">Une application rapide et facile d'utilisation qui offre un environement simple</p>
+                <p class="card-text">Une application rapide et facile d'utilisation qui offre un environnement simple</p>
             </div>
         </div>
         <div class="card col-md-3 bg-transparent text-dark border-0 text-center">
