@@ -18,7 +18,7 @@
                     <h3 class="mb-3">Investissez</h3>
                     <input class="form-control mb-3" v-model="investissement" type="number" placeholder="Montant que vous voulez investir">
                     <p class="text-danger">{{ error }}</p>
-                    <button class="btn btn-primary" @click="Transaction">Inverstir</button>
+                    <button class="btn btn-primary" @click="Transaction">Investir</button>
                 </div>
                 <div v-else class="investissement p-3 mb-5 shadow rounded">
                     <h3>Votre investissement</h3>

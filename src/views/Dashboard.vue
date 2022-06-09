@@ -64,7 +64,11 @@
         </div>
         
             
-        
+        <Transition>
+            <div v-if="visible" class="bg-danger text-center w-50 mx-auto my-4 align-middle fixed-top rounded p-3">
+                <p class="fs-5 mb-0 text-light">Favori supprimé</p>
+            </div>
+        </Transition>
         
     </div>
 </template>
@@ -87,7 +91,9 @@ export default {
             
             messages:[],
 
-            investissements:[]
+            investissements:[],
+
+            visible: false
         }
     },
     created(){
@@ -100,11 +106,17 @@ export default {
         Removefav(favorite){
             this.favorites = this.favorites.filter(fav => fav.name !== favorite.name);
             localStorage.setItem("favorites", JSON.stringify(this.favorites));
+
+            this.visible = true;
+            setTimeout(this.Resetcontent, 3000);
         },
 
         RemoveAll(){
             this.favorites = [];
             localStorage.setItem("favorites", JSON.stringify(this.favorites));
+        },
+        Resetcontent(){
+            this.visible = false
         }
     }
 }
@@ -113,5 +125,15 @@ export default {
 <style scoped>
 .upper::first-letter{
     text-transform: uppercase;
+}
+
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
 }
 </style>
