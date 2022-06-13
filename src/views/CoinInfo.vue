@@ -21,7 +21,7 @@
                     <button class="btn btn-primary" @click="Transaction">Investir</button>
                 </div>
                 <div v-else class="investissement p-3 mb-5 shadow rounded">
-                    <h3>Votre investissement</h3>
+                    <h3>Votre investissement | {{ investissementobj.nbr.toFixed(3) }}</h3>
                     <div class="row text-center p-3">
                         <h4 class="col-md-6">Prix au moment de l'investissement : <br> {{ investissementobj.price }} ☾</h4>
                         <h4 class="col-md-6">Somme investie : <br> {{ investissementobj.invest }} ☾</h4>
@@ -173,12 +173,14 @@ export default {
 
             if(this.wallet >= this.investissement){
                 this.wallet =  this.wallet - this.investissement;
+                let nbrcoin = this.investissement / this.coin.market_data.current_price.usd;
                 localStorage.setItem("wallet", JSON.stringify(this.wallet));
                 localStorage.setItem(`${this.coin.id}info`,JSON.stringify({
                     price: this.coin.market_data.current_price.usd,
                     invest: this.investissement,
                     id: this.id,
-                    image: this.coin.image.thumb
+                    image: this.coin.image.thumb,
+                    nbr: nbrcoin
                 }));
                 this.investissementobj = JSON.parse(localStorage.getItem(`${this.coin.id}info`))
 

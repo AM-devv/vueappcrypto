@@ -13,6 +13,7 @@
             <div class="row">
               <div class="col-md-3 col-10 bg-light p-3 rounded shadow m-3" v-for="invest in boiteinvest" :key="invest.id">
                 <h4 class="upper mb-3">{{ invest.id }} <img :src="invest.image" alt="logo"></h4>
+                <h5>{{ invest.nbr.toFixed(3) }}</h5>
                 <router-link class="btn btn-primary" :to="{ name: 'coininfo', params: {id: invest.id} }">Voir investissement</router-link>
               </div>
             </div>
