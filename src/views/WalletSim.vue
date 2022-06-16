@@ -37,6 +37,7 @@ export default {
   methods:{
     Fillwallet(){
       localStorage.setItem("wallet", JSON.stringify(this.wallet));
+      this.wallet = 0;
     }
   }
 }

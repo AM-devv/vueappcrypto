@@ -22,12 +22,21 @@
                 </div>
                 <div v-else class="investissement p-3 mb-5 shadow rounded">
                     <h3>Votre investissement | {{ investissementobj.nbr.toFixed(3) }}</h3>
+                    <label for="exchange">Définissez la marge que vous voulez simuler :</label>
+                    <select class="form-select w-25" v-model="exchangechoice" name="exchange" id="exchange">
+                        <option value="1">Sans marge</option>
+                        <option value="0.999">Binance | - 0.10%</option>
+                        <option value="0.9993">FTX | - 0.07%</option>
+                        <option value="0.995">Coinbase | - 0.50%</option>
+                        <option value="0.9974">Kraken | - 0.26%</option>
+                        <option value="0.996">Crypto.com | - 0.40%</option>
+                    </select>
                     <div class="row text-center p-3">
                         <h4 class="col-md-6">Prix au moment de l'investissement : <br> {{ investissementobj.price }} ☾</h4>
                         <h4 class="col-md-6">Somme investie : <br> {{ investissementobj.invest }} ☾</h4>
 
                         <h4 class="col-md-6">Prix maintenant : <br> {{ coin.market_data.current_price.usd }} ☾</h4>
-                        <h4 class="col-md-6">Ce que vous pouvez retirer : <br> {{ (investissementobj.invest * coin.market_data.current_price.usd / investissementobj.price).toLocaleString() }} ☾</h4>
+                        <h4 class="col-md-6">Ce que vous pouvez retirer : <br> <strong class="text-primary">{{ ((investissementobj.invest * coin.market_data.current_price.usd / investissementobj.price) * exchangechoice).toLocaleString() }}</strong> ☾</h4>
                     </div>
                     <button class="btn btn-success" @click="Retirer">Retirer</button>
                 </div>
@@ -115,7 +124,9 @@ export default {
             investissementobj:[],
 
             boiteinvest:[],
-            error : ""
+            error : "",
+
+            exchangechoice: 1
             
         }
         
@@ -205,7 +216,7 @@ export default {
         },
         Retirer(){
             let multiple = this.coin.market_data.current_price.usd / this.investissementobj.price;
-            let gains = this.investissementobj.invest * multiple;
+            let gains = (this.investissementobj.invest * multiple) * this.exchangechoice;
             this.wallet = this.wallet + gains;
             localStorage.setItem("wallet", JSON.stringify(this.wallet));
             this.investissementobj = null;
