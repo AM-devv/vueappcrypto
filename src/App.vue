@@ -40,7 +40,7 @@
         </div>
       </div>
     </nav>
-    
+    <notification></notification>
     <router-view></router-view>
     <footer-principal></footer-principal>
   </div>
@@ -48,11 +48,13 @@
 
 <script>
 import FooterPrincipal from "./components/FooterPrincipal.vue";
+import Notification from './components/Notification.vue';
 import Tuto from "./components/Tuto.vue";
 
 export default {
   components: {
-    FooterPrincipal, Tuto
+    FooterPrincipal, Tuto,
+    Notification
   },
 
   data(){
