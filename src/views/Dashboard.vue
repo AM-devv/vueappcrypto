@@ -60,7 +60,15 @@
 
                 <likes class="mb-3"></likes>
 
-                <lastposts></lastposts>
+                <lastposts class="mb-3"></lastposts>
+                <div class="bg-light shadow rounded text-dark p-3">
+                    <h3>Changer limite notifications</h3>
+                    <div class="d-flex mb-3">
+                        <input v-model="limitnotification" type="range" min="5" max="20">
+                        <strong class="mb-0 ms-2"> + / - {{ limitnotification }} %</strong>
+                    </div>
+                    <button class="btn btn-success" @click="Changelimit">Valider</button>
+                </div>
             </section>
         </div>
         
@@ -94,14 +102,19 @@ export default {
 
             investissements:[],
 
-            visible: false
+            visible: false,
+
+            limitnotification: 10
         }
     },
     created(){
         this.favorites = JSON.parse(localStorage.getItem('favorites'));
         this.messages = JSON.parse(localStorage.getItem('messages')); 
         this.investissements = JSON.parse(localStorage.getItem('boiteinvest'));
-
+        this.limitnotification = JSON.parse(localStorage.getItem('limitnotification'));
+        if(this.limitnotification == null){
+            this.limitnotification = 10
+        }
     },
     methods:{
         Removefav(favorite){
@@ -118,6 +131,10 @@ export default {
         },
         Resetcontent(){
             this.visible = false
+        },
+        Changelimit(){
+            localStorage.setItem("limitnotification", this.limitnotification);
+            location.reload();
         }
     }
 }

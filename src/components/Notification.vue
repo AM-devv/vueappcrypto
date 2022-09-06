@@ -30,19 +30,24 @@ export default {
     name:"Notification",
     data(){
         return{
-            cryptos : []
+            cryptos : [],
+            limitnotification : 10
         }
     },
     computed : {
         Filter(){
-            return this.cryptos.filter((cryp) => (cryp.price_change_percentage_24h_in_currency > 20));
+            return this.cryptos.filter((cryp) => (cryp.price_change_percentage_24h_in_currency > this.limitnotification));
         },
         Filter2(){
-            return this.cryptos.filter((cryp) => (cryp.price_change_percentage_24h_in_currency < -20));
+            return this.cryptos.filter((cryp) => (cryp.price_change_percentage_24h_in_currency < -(this.limitnotification)));
         }
     },
      created() {
         this.GetCoins();
+        this.limitnotification = JSON.parse(localStorage.getItem('limitnotification'));
+        if(this.limitnotification == null){
+            this.limitnotification = 10
+        }
         //setInterval(this.GetCoins, 10000);
         
     },
