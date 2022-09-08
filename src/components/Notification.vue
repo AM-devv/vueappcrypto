@@ -1,8 +1,8 @@
 <template>
     <div>
-        <div v-for="crypto in Filter" :key="crypto.id" class="bg-light d-none d-md-block noti w-25 shadow p-3 rounded end-0 bottom-0 position-fixed m-4">
+        <div v-for="crypto in Filter" :key="crypto.id" class="bg-light col-10 col-md-4 d-md-block noti shadow p-3 rounded end-0 bottom-0 position-fixed m-4">
                 <div class="d-flex justify-content-end">
-                    <a @click="cryptos = []" class="me-2 my-auto" style="font-size: 0.6em;" href="#">Fermer tout</a>
+                    <a @click="cryptos = []" class="me-2 my-auto" href="#">Fermer tout</a>
                     <span role="button" @click="crypto.price_change_percentage_24h_in_currency = 0">╳</span>
                 </div>
                 
@@ -10,9 +10,9 @@
             <p>{{ crypto.name }} a <strong class="text-success">augmenté de {{ crypto.price_change_percentage_24h_in_currency.toFixed(3) }}%</strong> sur les dernieres 24h</p>
         </div>
 
-        <div v-for="crypto in Filter2" :key="crypto.id" class="bg-light d-none d-md-block noti w-25 shadow p-3 rounded end-0 bottom-0 position-fixed m-4">
+        <div v-for="crypto in Filter2" :key="crypto.id" class="bg-light col-10 col-md-4 d-md-block noti shadow p-3 rounded end-0 bottom-0 position-fixed m-4">
                 <div class="d-flex justify-content-end">
-                    <a @click="cryptos = []" class="me-2" href="#">Fermer tout</a>
+                    <a @click="cryptos = []" class="me-2 my-auto" href="#">Fermer tout</a>
                     <span role="button" @click="crypto.price_change_percentage_24h_in_currency = 0">╳</span>
                 </div>
                 
