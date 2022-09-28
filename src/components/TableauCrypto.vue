@@ -72,7 +72,7 @@ export default {
     },
     created() {
         this.GetCoins();
-        //setInterval(this.GetCoins, 10000);
+        setInterval(this.GetCoins, 10000);
         
     },
     computed : {

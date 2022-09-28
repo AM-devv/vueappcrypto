@@ -168,8 +168,8 @@ export default {
         },
     },
     created(){
-         this.GetInfo();
-        //setInterval(this.GetInfo,10000);
+        this.GetInfo();
+        setInterval(this.GetInfo,10000);
 
         this.wallet = JSON.parse(localStorage.getItem('wallet'));
         this.investissementobj = JSON.parse(localStorage.getItem(`${this.id}info`));

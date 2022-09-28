@@ -86,7 +86,7 @@ export default {
         this.likesme = JSON.parse(localStorage.getItem('likesme'));
 
         this.GetPost();
-        //setInterval(this.GetPost, 10000);
+        setInterval(this.GetPost, 10000);
     },
 
     computed:{

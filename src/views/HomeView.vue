@@ -9,7 +9,7 @@
       <div class="col-6 d-none d-md-block"><img class="img-fluid" src="../assets/rocket.png" alt="lunebitcoin"></div> -->
       
     <div>
-      <h1 class="globalh1" >Bienvenu sur <strong class="gradienth1"> CRYPTOTHEMOON </strong>
+      <h1 class="globalh1" >Bienvenue sur <strong class="gradienth1"> CRYPTOTHEMOON </strong>
         l'application web qui va
 vous simplifier la vie
 avec la cryptomonnaie
