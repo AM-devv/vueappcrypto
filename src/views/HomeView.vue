@@ -71,6 +71,6 @@ export default {
     color: transparent;
     font-family: 'Noto Sans', sans-serif;
     text-align: center;
-    filter: drop-shadow(3px 3px 5px black);
+    filter: drop-shadow(3px 3px 5px rgba(0, 0, 0, 0.351));
   }
 </style>
