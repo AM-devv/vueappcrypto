@@ -40,7 +40,7 @@
                     <slider></slider>
                 </div>
 
-                <div class="bg-light shadow rounded text-dark p-3">
+                <div class="bg-light mb-3 shadow rounded text-dark p-3">
                     <h3>WalletSim</h3>
                     <router-link class="btn btn-primary" :to="{ name: 'walletsim' }">Voir les investissements</router-link>
                     <div class="row">
@@ -51,6 +51,8 @@
                         </div>
                     </div>
                 </div>
+
+                <budgetbar class="mb-3"></budgetbar>
             </section>
 
             <section class="col-lg-6 mb-3 col-12">
@@ -88,11 +90,12 @@ import Slider from "../components/Slider.vue"
 import Likes from "../components/Likes.vue"
 import Lastposts from "../components/Lastposts.vue"
 import Timecounter from "../components/Timecounter.vue"
+import Budgetbar from "../components/Budgetbar.vue"
 
 export default {
     name:"Dashboard",
     components: {
-        Trending,Slider,Likes,Lastposts,Timecounter
+        Trending,Slider,Likes,Lastposts,Timecounter, Budgetbar
     },
     data(){
         return{
