@@ -4,8 +4,8 @@
             <h3>Représentation investissements</h3>
             <h5>Sur {{ sum }} voici vos investissements</h5>
             <div class="w-100 d-flex">
-                <div class="text-center investcolor" :style="{backgroundColor: '#'+(Math.random()*0xFFFFFF<<0).toString(16), width:((item.invest/sum)*100)+ '%'}" v-for="item in boiteinvest" :key="item.id">
-                    {{ item.id }} <br> {{ item.invest }}☾ 
+                <div class="text-center p-1 investcolor" :style="{backgroundColor: '#'+(Math.random()*0xFFFFFF<<0).toString(16), width:((item.invest/sum)*100)+ '%'}" v-for="item in boiteinvest" :key="item.id">
+                   <img :src="item.image" alt="cryptologo">
                 </div>
             </div>
         </div>
@@ -41,11 +41,6 @@ export default {
 
 .investcolor:hover{
     scale: 1.5;
-    font-size: 0.8rem;
-}
-
-.investcolor::first-letter{
-    text-transform: uppercase;
 }
 
 .investcolor:first-child{
